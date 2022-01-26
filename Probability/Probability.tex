@@ -1,0 +1,137 @@
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{mathrsfs}
+\usepackage{amssymb}
+\usepackage{dcolumn}
+\usepackage{graphicx}
+\usepackage{fancybox}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{tikz-cd}
+
+\usepackage{CJK}
+
+\newtheorem{definition}{Definition}
+\newtheorem{theorem}{Theorem}
+\newtheorem{proposition}{Proposition}
+\newtheorem{lemma}{Lemma}
+\newtheorem{corollary}{Corollary}
+\newtheorem{example}{Example}
+\newtheorem{remark}{Remark}
+
+
+\renewcommand{\today}{\number\year.\number\month.\number\day}
+
+
+
+
+\begin{document}
+\begin{CJK}{UTF8}{gbsn}
+
+\title{Probability}
+\author{heng}
+\maketitle
+
+\tableofcontents
+
+
+
+\section{Condition and Independence}
+These are what distinguish probability from measure theory.
+
+\begin{definition}[Conditional probability]
+	Given a probability space $(\Omega,\mathcal{F},\mathbb{P)}$, a random variable $X$, an event $E$, define a  finite measure $m$ on $\Omega$ as 
+	\begin{align*}
+		m(E'):=P([X\in E'] \cap E)
+	\end{align*}
+	This measure is absolutely continuous with respect to the distribution of $X$ (denote it as $P_X$) since
+	\begin{align*}
+		m(E')=P([X\in E'] \cap E)\leq P([X\in E'])=P_X(E')
+	\end{align*}
+	Therefore, by Radon-Nikodym theorem, there exists a $P_X$-integrable function $\psi$ s.t.
+	\begin{align*}
+		P([X\in E']\cap E)=\int_{E'}\psi(\omega)dP_X(\omega)
+	\end{align*}
+	We define $P(E'|X=\omega):=\psi(\omega)$ as the probability of $E'$ under the condition $X=\omega$.
+\end{definition}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\section{Convergence of Random Variables}
+\begin{definition}
+Let $\{f_n\},f$ be measurable functions, $\mu$ be a measure, define
+	\begin{itemize}
+  \item \textbf{almost everywhere convergence}: Converge point-wise outside a set with measure 0.
+  \item \textbf{convergence by measure}: $\forall \varepsilon >0, \mu(|f_n-f|>\varepsilon)\rightarrow 0$
+  \item \textbf{convergence by distribution}: $\forall g \in C_{bounded}(\mathbb{R}),\int_{\mathbb{R}}gdf_n\rightarrow \int_{\mathbb{R}}gdf$
+  \item 
+\end{itemize}
+
+\end{definition}
+
+
+
+
+\section{Law of Large Numbers}
+
+\begin{definition}
+	Let $\{X_n\}$ be r.v., it obeys the \textbf{Law of large numbers} if $\exists \{a_n\}, 0 \leq \{b_n\}\uparrow\infty$  s.t.
+	$$P(|\frac{\sum_{i=1}^{n}x_i-a_n}{b_n}|\geq \varepsilon) \rightarrow 0$$
+	for any $\varepsilon > 0$.
+\end{definition}
+
+\begin{theorem}
+	\textbf{Bernoulli's Weak Law of Large Numbers}
+	Let $\mu_n$ be Bernoullian r.v. ,then $P(|\frac{\mu_n}{n}-p| \geq \varepsilon)\rightarrow 0$
+	\begin{proof}
+		By applying Chebyshev's inequal., we have
+		$$ P(|\frac{\mu_n}{n}-p| \geq \varepsilon) \leq \frac{1}{n^2\varepsilon^2}D\mu_n =\frac{1}{n^2\varepsilon^2}np(1-p) \rightarrow 0$$
+	\end{proof}
+\end{theorem}
+
+
+\begin{example}
+	\textbf{Bernstein's proof of Weierstrass approximation theorem}
+
+		Let $f \in C^0([0,1])$,
+	$$B_n(x):=\sum_{i=0}^{n}f(\frac{i}{n})C_n^ix^i(1-x)^{n-i}$$
+	then $B_n \rightrightarrows f$.
+
+	
+	\begin{proof}
+		Let $\mathcal{X}_i\sim b(1,x)$, we have
+		$$Ef(\frac{\sum_{i=1}^n\mathcal{X}_i}{n})=\sum_{i=1}^nf(\frac{i}{n})C_n^ix^i(1-x)^{n-i}=B_n(x)$$
+		therefore,
+		\begin{align*}
+			&|Ef(\frac{\sum_{i=1}^n\mathcal{X}_i}{n})-f(x)| \\
+			\leq &E|f(\frac{\sum_{i=1}^n\mathcal{X}_i}{n})-f(x)|I_{|\frac{\sum_{i=1}^n\mathcal{X}_i}{n}-x|>\delta} \\
+			+& E|f(\frac{\sum_{i=1}^n\mathcal{X}_i}{n})-f(x)|I_{|\frac{\sum_{i=1}^n\mathcal{X}_i}{n}-x|\leq \delta} \\
+			\leq& 2||f||_{\infty}P(\frac{\sum_{i=1}^n\mathcal{X}_i}{n}-x|>\delta)+\varepsilon \\
+			\leq & 2||f||_{\infty}\frac{x(1-x)}{n\delta^2}+\varepsilon \\
+			\leq & ||f||_\infty\frac{1}{2n\delta^2}+\varepsilon \rightrightarrows 0
+		\end{align*}
+	\end{proof}
+\end{example}
+
+
+
+
+
+
+
+
+\end{CJK}
+\end{document}

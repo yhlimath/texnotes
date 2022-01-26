@@ -1,0 +1,157 @@
+\documentclass{book}
+\usepackage{amsmath}
+\usepackage{mathrsfs}
+\usepackage{amssymb}
+\usepackage{dcolumn}
+\usepackage{graphicx}
+\usepackage{fancybox}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{tikz-cd}
+
+\usepackage{CJK}
+
+\newtheorem{definition}{Definition}
+\newtheorem{theorem}{Theorem}
+\newtheorem{proposition}{Proposition}
+\newtheorem{lemma}{Lemma}
+\newtheorem{corollary}{Corollary}
+\newtheorem{example}{Example}
+\newtheorem{remark}{Remark}
+
+\begin{document}
+\begin{CJK}{UTF8}{gbsn}
+
+\title{测度与积分}
+\author{李岳恒}
+\maketitle
+
+\tableofcontents
+\setcounter{section}{-1}
+
+
+\section{黎曼积分的局限性}
+
+
+\begin{theorem}
+	Let $f_n,f \in C([0,1])$. If $f_n \rightrightarrows f$ on $[0,1]$, then 
+	$$\lim_{n\rightarrow \infty}\int_0^1f_n=\int_0^1 f$$
+\end{theorem}
+
+Uniform convergence is a sufficient condition for interchanging $lim$ and $\int$, but not necessary.
+
+\begin{example}
+	$f_n(x):=x^n,f:=\chi_{\{1\}}$.
+\end{example}
+
+Sometimes, the point-wise limit of a sequence of  Riemannian integrable functions is not Riemannian integrable. e.g. the Dirichlet function is the point-wise limit of a sequence of Riemannian integrable functions.
+
+
+
+
+
+
+
+\section{Measuring Sets}
+
+\subsection{集合运算}
+\begin{definition}
+	\textbf{Symmetric difference} $A\Delta B:=(B\backslash A)\cup (A \backslash B).$
+\end{definition}
+
+\begin{proposition}\label{symmetric difference}
+Properties of symmetric difference.\par 
+\begin{itemize}
+	\item $(A\Delta B)\Delta C = A\Delta (B\Delta C)$
+	\item $(A\Delta B)\cap C=(A\cap C)\Delta (B\cap C)$
+\end{itemize}
+\end{proposition}
+
+
+\begin{definition}
+	\textbf{Upper and Lower Limits}
+	$$\limsup_{k\rightarrow \infty}A_k:=\bigcap_{k\in \mathbb{N}}\bigcup_{j\geq k}A_j$$
+	$$\liminf_{k\rightarrow \infty}A_k:=\bigcup_{k\in \mathbb{N}}\bigcap_{j\geq k}A_j$$
+\end{definition}
+
+\begin{proposition}
+Properties of upper and lower limits.\par 
+	\begin{itemize}
+		\item The upper and lower limits exist.
+		\item $\limsup A_k=\{\omega:\omega \; lies \; in\; infinite\; many\; A_k.\}$
+		\item $\liminf A_k=\{\omega:\omega\; does\; not\; lie\; in\; at\; most\; finite\; A_k \}$
+	\end{itemize}
+\end{proposition}
+
+
+
+\subsection{环、半环和$\sigma$-代数}
+我们用集合的交和对称差两种运算在集合族上构造一个环.
+\begin{definition}\label{ring}
+	称一个集族$\mathfrak{R}$为环,若其对集合交和对称差两种运算封闭.
+\end{definition}
+\begin{remark}
+	根据命题\ref{symmetric difference}, $\mathfrak{R}$确实是一个环.
+\end{remark}
+\begin{remark}
+	由于$A\cup B=(A\Delta B)\Delta(A\cap B)$及$A\setminus B=(A\Delta B)\cap A$,环对于集合的并和减法封闭.
+\end{remark}
+
+
+
+
+
+
+
+
+
+\begin{definition}
+	称一个集族$\mathfrak{S}$为半环,若其包含空集,对交封闭,且仍取$A_1\subset A$,$A_1,A\in \mathfrak{S}$,存在着分解
+	\begin{align*}
+		A=\bigcup_{k-1}^nA_k \hspace{3ex}A_k\in \mathfrak{S}
+	\end{align*}
+\end{definition}
+
+
+半环的有限分解性质可以加强:
+\begin{lemma}
+	设$\mathfrak{S}$为半环,若$A_1,\dots,A_n,A \in \mathfrak{S}$,且诸$A_k$为$A$两两不交的子集,则可以向$\{A_k\}$中添加$\mathfrak{S}$中的集合$A_{n+1},\dots,A_s$使得
+	\begin{align*}
+		A=\bigcup_{k=1}^sA_k
+	\end{align*}
+	\begin{proof}
+		使用归纳法:$n=1$时命题显然成立.下考虑$n+1$时情形.
+	\end{proof}
+\end{lemma}
+
+
+
+
+
+
+
+\begin{definition}
+	\textbf{$\sigma$-algebra}. Given a set $X$, $\mathcal{A}\subset P(X)$ is a $\sigma$-algebra if \par 
+\begin{itemize}
+	\item $\emptyset\in \mathcal{A}$
+	\item $A\in \mathcal{A}\rightarrow A^c \in \mathcal{A}$
+	\item $\mathcal{A}$ is closed under countable union.
+\end{itemize}
+\end{definition}
+
+
+
+\chapter{Lebesgue Measure}
+\section{Measure}
+\begin{definition}
+	A measure is a set function $\mu: \mathcal{P}(X)\rightarrow [0,\infty]$ satisfying
+	\begin{itemize}
+		\item $\mu(\phi)=0$
+		\item 
+	\end{itemize}
+\end{definition}
+
+
+
+\end{CJK}
+\end{document}

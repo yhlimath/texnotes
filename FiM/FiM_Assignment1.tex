@@ -1,0 +1,59 @@
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{mathrsfs}
+\usepackage{amssymb}
+\usepackage{dcolumn}
+\usepackage{graphicx}
+\usepackage{fancybox}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amsrefs}
+\usepackage{tikz-cd}
+
+\usepackage{CJK}
+
+
+\newtheorem{definition}{Definition}
+\newtheorem{theorem}{Theorem}
+\newtheorem{proposition}{Proposition}
+\newtheorem{lemma}{Lemma}
+\newtheorem{corollary}{Corollary}
+\newtheorem{example}{Example}
+\newtheorem{remark}{Remark}
+
+\renewcommand{\today}{\number\year.\number\month.\number\day}
+
+
+
+
+
+
+\begin{document}
+
+
+\title{Assignment 1}
+\author{Li Yueheng s2306706}
+
+\maketitle
+
+\section*{Problem 1}
+The characteristic function of $W_t$ is $f(s)=e^{-s^2t/2}$. Since $E[W^4_t]=f^{(4)}(0)$, consider the Taylor expansion $f(s)=1-\frac{1}{2}ts^2+\frac{1}{8}t^2s^4+...$. We find that $\frac{1}{8}t^2=\frac{f^{(4)}(0)}{4!}$, i.e. $E[W^4_t]=f^{(4)}(0)=3t^2.$
+
+Since $p(x)$, the probability density function of $W_t$ is an even function while $x^5$ is an odd function, $E[W^5_t]=\int_{\mathbb{R}}x^5p(x)dx=0.$
+
+\section*{Problem 2}
+A forward contract is a contract between two parties agreeing to buy or sell an asset at a certain price by a certain date. 
+
+A call option is the right to buy an asset at a certain price within an expiration date.
+
+The fundamental difference between the two is that forward contracts are obligatory, while a call options are not.
+
+
+\section*{Problem 3}
+\begin{align*}
+	&\int_{\mathbb{R}}exp\{-ax^2+bx+c\}dx \\
+	=&\int_{\mathbb{R}}exp\{-a(x-\frac{b}{2a})^2+(c+\frac{b^2}{4a})\}dx \\
+	=&\sqrt{\frac{\pi}{a}}exp\{\frac{b^2}{4a}+c\}
+\end{align*}
+
+\end{document}

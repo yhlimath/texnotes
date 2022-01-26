@@ -1,0 +1,116 @@
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{mathrsfs}
+\usepackage{amssymb}
+\usepackage{dcolumn}
+\usepackage{graphicx}
+\usepackage{fancybox}
+\usepackage{amsmath}
+\usepackage{tikz-cd}
+\usepackage{amsthm}
+\usepackage{CJK}
+\linespread{1.5}
+\renewcommand{\today}{\number\year.\number\month.\number\day}
+
+\usepackage{CJK}
+
+
+
+
+
+\newtheorem{definition}{Definition}
+\newtheorem{theorem}{Theorem}
+\newtheorem{proposition}{Proposition}
+\newtheorem{lemma}{Lemma}
+\newtheorem{corollary}{Corollary}
+\newtheorem{example}{Example}
+
+
+
+\begin{document}
+\begin{CJK}{UTF8}{gbsn}
+
+\title{麦克斯韦方程组}
+%\author{李岳恒}
+\maketitle
+
+在本文中,我们尝试从基本的物理现象出发,归纳出麦克斯韦方程组.
+
+\section{库仑定律、高斯定理和电场的散度}
+\subsection{从库仑定律到静电场}
+
+
+\iffalse
+带电质点间存在着相互作用,作用的规律被总结为一条经验公式,库仑定律:
+\begin{align*}
+	\textbf{F}=\frac{qq'}{4\pi\varepsilon_{0} r^3}\textbf{r}
+\end{align*}
+ 其中 $\textbf{F}$ 是作用力的大小, $q,q'$ 是两质点所带电荷, $\textbf{r}$ 是由 $q$ 指向 $q'$ 的矢量, $\varepsilon_0$ 是真空介电常量.
+
+我们换一个视角理解这个公式:
+\fi 
+
+
+每个点 $q$ 电荷在空间中激发了一个向量场$\textbf{E}$
+\begin{align*}
+	\textbf{E}=\frac{q}{4\pi\varepsilon_{0} r^3}\textbf{r}
+\end{align*}
+
+\iffalse
+使得一个电荷 $q'$在相对 $q$ 的位矢为$\textbf{r}$时,受力为$\textbf{F}=\textbf{E}q'$. 
+
+在带电粒子相互作用的层面上,这两种理解等价.但向量场 $\textbf{E}$ 是单个电荷的内禀属性,无关于相互作用,在物理上是更加深刻的.我们称之为静电场.
+
+很自然地,静电场从库仑定律处继承了力的所有叠加法则.数个电荷在某一点激发的电场为它们分别激发电场的和.
+\fi
+
+推而广之,若电荷在空间 $V$ 中有一分布,密度函数为 $\rho(\textbf{x})$, 则体积微元中的电荷量 $dQ=\rho(\textbf{y})dy$,它会激发一个电场.从而给定空间中一点 $\textbf{x}$ 后,电荷分布 $\rho$ 激发的电场为这些电场的和
+\begin{align*}
+	\textbf{E}(\textbf{x})=\int_{\mathbb{R}^3}\frac{\rho(\textbf{y})\textbf{r}}{4\pi\varepsilon_0 r^3}dy 
+\end{align*}
+我们假设这个积分是有意义的.
+
+\subsection{高斯定理与电场的散度}
+
+\begin{theorem}
+	高斯定理: 一个闭合曲面上的电通量只取决于其内部的电荷量.具体关系为
+	\begin{align*}
+		\int_{\partial\Omega}\textbf{E} \cdot \textbf{n}d\sigma =\frac{1}{\varepsilon_0}\int_{\Omega}\rho(x)dx
+	\end{align*}
+	\begin{proof}
+		\begin{align*}
+			&\int_{\partial\Omega}\textbf{E} \cdot \textbf{n}d\sigma=\int_{\partial\Omega}\int_{\mathbb{R}^3}\frac{\rho(\textbf{y})\textbf{\textbf{r}}\cdot\textbf{n}}{4\pi\varepsilon_0 r^3}dy  d\sigma \\
+			by\,Fubini\,theorem=&\int_{\mathbb{R}^3}\rho(\textbf{y})\int_{\partial\Omega}\frac{(\textbf{x-y})\cdot\textbf{n}}{4\pi\varepsilon_0 (x-y)^3}d\sigma dy \\
+			=&:\int_{\mathbb{R}^3}\rho(\textbf{y})Idy
+		\end{align*}
+		下面讨论积分 $I$. 当点 $y$ 在区域 $\Omega$ 之外时,使用散度定理可以可知 $I=0$. 当 $y$ 在 $\Omega$ 中时,我们找一个以 $y$ 为球心,包裹整个 $\Omega $ 的球体 $B_R(y)$.由于 $B_R(y)-\Omega$ 不包含 $y$, 我们有
+		$$\int_{\partial\Omega}\frac{(\textbf{x-y})\cdot\textbf{n}}{4\pi\varepsilon_0 (x-y)^3}d\sigma=\int_{\partial B_R(y)}\frac{(\textbf{x-y})\cdot\textbf{n}}{4\pi\varepsilon_0 (x-y)^3}d\sigma=\frac{1}{\varepsilon_0}$$
+			最后一个等号来自直接的计算.将之代入高斯定理的叙述中即可得到结论.
+	\end{proof}
+
+\end{theorem}
+
+\begin{corollary}
+	高斯定理的微分形式: 若静电场有充分的光滑性,我们可以在高斯定理左侧使用散度定理.再考虑到区域 $\Omega$ 的任意性,就得到了高斯定理的微分形式
+	$$\nabla\cdot E= \frac{\rho}{\varepsilon_0}$$
+\end{corollary}
+
+
+
+\section{毕奥·萨法尔定律、安培环路定理和磁场的旋度}
+
+恒定电流激发的磁场由毕奥·萨法尔定律描述:
+\begin{align*}
+	\textbf{B}(x)=\frac{\mu_0}{4\pi}\int_{\mathbb{R}^3}\frac{\textbf{J}(y)\times \textbf{r}}{r^3}dy
+\end{align*}
+其中 $\textbf{J}(y)$ 是电流密度, $\textbf{r}=x-y$.	这是一个经验公式.
+
+
+
+
+
+
+
+
+\end{CJK}
+\end{document}

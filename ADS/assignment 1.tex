@@ -1,0 +1,122 @@
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{mathrsfs}
+\usepackage{amssymb}
+\usepackage{dcolumn}
+\usepackage{graphicx}
+\usepackage{fancybox}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amsrefs}
+\usepackage{tikz-cd}
+
+\usepackage{CJK}
+
+
+\newtheorem{definition}{Definition}
+\newtheorem{theorem}{Theorem}
+\newtheorem{proposition}{Proposition}
+\newtheorem{lemma}{Lemma}
+\newtheorem{corollary}{Corollary}
+\newtheorem{example}{Example}
+\newtheorem{remark}{Remark}
+
+\renewcommand{\today}{\number\year.\number\month.\number\day}
+
+
+
+
+
+
+\begin{document}
+
+
+\title{Assignment 1}
+\author{Li Yueheng s2306706}
+\date{\today}
+\maketitle
+
+
+\section*{Problem 1}
+\subsection*{1}
+$g'(x)=-2\alpha(x-\eta)$ decreases monotonously. therefore $g$ achieves a unique maximum $r_0$ at $x_{max}=\eta$.
+
+
+\subsection*{2}
+Set $\dot{x}=0$ to find three solutions $\{0,\eta+\sqrt{\frac{r_0}{\alpha}},\eta-\sqrt{\frac{r_0}{\alpha}}\}$. Among which the first two are distinct non-negative solutions. They, are the steady states of the system.
+
+Near $0$, we have $ x\dot{x} =x^2 g(x) \leq 0$. 
+
+Near $\eta+\sqrt{\frac{r_0}{\alpha}}$, we have $(x-(\eta+\sqrt{\frac{r_0}{\alpha}}))\dot{x}\leq 0$.
+
+So, the system will stay close to these two steady states under perturbation. Therefore the steady state is stable.
+
+
+\subsection*{3}
+Under the assumption $\eta-\sqrt{\frac{r_0}{\alpha}}>0$, the arguments in the previous problem still hold. So $0$ and $\eta+\sqrt{\frac{r_0}{\alpha}}$ are stable steady states. 
+
+While near $\eta-\sqrt{\frac{r_0}{\alpha}}$, $(x-(\eta-\sqrt{\frac{r_0}{\alpha}}))\dot{x}\geq 0$. If $x\neq \eta-\sqrt{\frac{r_0}{\alpha}}$, the inequality is strict. Therefore a perturbation will be magnified, which means $\eta-\sqrt{\frac{r_0}{\alpha}}$ is unstable.
+
+
+\subsection*{4}
+$x_c:=\eta-\sqrt{\frac{r_0}{\alpha}}$ is a critical value. When the initial population is smaller than $x_c$, the horde can no longer sustain itself and gradually evolves toward extinction (the steady state $0$). While when the initial population is larger than $x_c$, the horde expands toward its maximum size $\eta+\sqrt{\frac{r_0}{\alpha}}$.
+
+$0$ and $\eta+\sqrt{\frac{r_0}{\alpha}}$ stand for extinction and ecological equilibrium.
+
+
+\section*{Problem 2}
+
+
+
+\subsection*{1}
+Solutions to the homogenous equation take the form $x_{hom}(t)=C_1e^t+C_2e^{-t}$, and a solution to the equation is $x_p(t)=-\frac{1}{2}cost$. Therefore a general solution would take the form
+\begin{align*}
+	x(t)=\frac{1}{2}(x(0)+\dot{x}(0)+\frac{1}{2})e^t+ \frac{1}{2}(x(0)-\dot{x}(0)+\frac{1}{2}) e^{-t}-\frac{1}{2}cost
+\end{align*}
+
+
+
+\subsection*{2}
+\begin{align*}
+	y:=\dot{x} \\
+	t(\tau):=\tau 
+\end{align*}
+
+then the system has an autonomous form 
+
+	
+	\begin{equation*}
+	\frac{d}{d\tau}\left[
+	\begin{array}{c}
+		 x\\
+		 y\\
+		 t
+	\end{array}
+	\right]=
+	\left[
+	\begin{array}{c}
+		 y\\
+		 x+cost\\
+		 1
+	\end{array}
+	\right]
+\end{equation*}
+
+
+
+\subsection*{3}
+Given initial condition $(\sigma_x,\sigma_y)\in \Sigma=\mathbb{R}^2$, consider its image under the flow $\phi_{2\pi}$. Define the $Poincar\acute{e}$ map $P$ as 
+\begin{align*}
+	P:\Sigma\times\{0\}&\rightarrow\Sigma\times\{0\} \\
+	(\sigma_x,\sigma_y,0)&\mapsto (\phi_{2\pi}(\sigma_x,\sigma_y),0)
+\end{align*}
+where
+\begin{align*}
+	&p_x\circ\phi_{2\pi}(\sigma_x,\sigma_y)=\frac{1}{2}(\sigma_x+\sigma_y+\frac{1}{2})e^{2\pi}+ \frac{1}{2}(\sigma_x-\sigma_y+\frac{1}{2}) e^{-2\pi}-\frac{1}{2} \\
+	&p_y\circ\phi_{2\pi}(\sigma_x,\sigma_y)=\frac{1}{2}(\sigma_x+\sigma_y+\frac{1}{2})e^{2\pi}- \frac{1}{2}(\sigma_x-\sigma_y+\frac{1}{2}) e^{-2\pi}
+\end{align*}
+where $p_i$ are projections.
+
+
+
+\end{document}

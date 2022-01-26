@@ -1,0 +1,58 @@
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{mathrsfs}
+\usepackage{amssymb}
+\usepackage{dcolumn}
+\usepackage{graphicx}
+\usepackage{fancybox}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amsrefs}
+\usepackage{tikz-cd}
+
+\usepackage{CJK}
+
+
+\newtheorem{definition}{Definition}
+\newtheorem{theorem}{Theorem}
+\newtheorem{proposition}{Proposition}
+\newtheorem{lemma}{Lemma}
+\newtheorem{corollary}{Corollary}
+\newtheorem{example}{Example}
+\newtheorem{remark}{Remark}
+
+\renewcommand{\today}{\number\year.\number\month.\number\day}
+
+
+
+
+
+
+\begin{document}
+
+
+\title{Workshop 1}
+\author{Li Yueheng s2306706}
+
+
+\maketitle
+
+
+\section*{Problem 4(c)}
+
+Consider the Fourier series of $f(x)=(x-\frac{1}{2})^2$:
+\begin{align*}
+	c_n=&\int_{\mathbb{T}}f(x)e^{-i2\pi n}dx \\
+	=&\frac{2}{(2\pi n)^2} ,\forall n\neq 0 \\
+	c_0=&\frac{1}{12}
+\end{align*}
+therefore
+\begin{align*}
+	f(x)\sim \frac{1}{12}+\sum_{n\in\mathbb{Z}}c_ne^{i2\pi nx}=\frac{1}{12}+\sum_{n\geq 1}\frac{con(2\pi nx)}{(\pi n)^2}
+\end{align*}
+Since right hand side series converges absolutely and each term is a continuous function, it converges to a continuous function. While $f$ is continuous, the function and its Fourier series coincide.
+
+\section*{Problem 4(d)}
+take $x=1$ in the equality above to find $\sum_{n\geq 1}\frac{1}{n^2}=\frac{\pi^2}{6}$
+
+\end{document}

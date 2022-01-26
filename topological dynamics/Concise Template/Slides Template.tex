@@ -1,0 +1,154 @@
+\documentclass[11pt]{beamer}                                                                                                                 \usetheme{Madrid}
+\usepackage{graphicx}
+\usepackage{subfigure}
+\usepackage[english]{babel}
+\usepackage{times}
+\usepackage[T1]{fontenc}
+
+
+\usepackage{amsmath}
+\usepackage{mathrsfs}
+\usepackage{amssymb}
+\usepackage{dcolumn}
+\usepackage{fancybox}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amsrefs}
+\usepackage{tikz-cd}
+\usepackage{verbatim}
+
+\usepackage{CJK}
+
+
+
+
+
+
+
+
+\begin{document}
+\begin{CJK}{UTF8}{gbsn}
+
+
+
+    \title[拓扑动力系统的通有性和稠密性问题]{子动力系统的通有性和稠密性问题} %有可选参数
+    \subtitle{大学生创新训练项目预立项答辩}
+    \author{李岳恒、马跃、易子淳\\
+    指导教师:窦斗}
+    
+	
+    \date{2021年11月23日}  % 显示日期
+
+    \begin{frame}
+        \titlepage
+    \end{frame}
+	
+	\begin{frame}
+		\frametitle{目录}
+		\tableofcontents
+	\end{frame}
+
+
+\section{项目组介绍}
+
+	\begin{frame}{项目组介绍}
+	项目组成员:
+		\begin{itemize}
+			\item 李岳恒 19级 匡亚明学院
+			\item 马跃 \hspace{2ex}19级 匡亚明学院
+			\item 易子淳 19级 物理学院
+		\end{itemize}
+	指导教师:
+		\begin{itemize}
+			\item 窦斗 副教授 数学系
+		\end{itemize}
+	\end{frame}
+
+
+\section{课题简介}
+
+	\begin{frame}{课题简介-拓扑动力系统}
+		\begin{definition}[拓扑动力系统]
+		我们考虑一个紧致度量空间$(X,d)$,其上配备一个同胚映射$f$,并研究$X$中的点在$f$迭代作用下的长期行为.
+		\end{definition}
+		
+		
+			\begin{definition}[符号动力系统]
+			我们尤其关心符号动力系统:给定一个有限的符号表$A$,我们考虑以符号为元素的双边无穷长序列$(a_n)_{n\in\mathbb{Z}}$构成的集合,其上赋以离散拓扑的乘积,并定义同胚映射为移位:
+			\begin{align*}
+				\sigma:X &\rightarrow X \\
+				(a_n)_{n\in\mathbb{Z}} &\mapsto (a_{n+1})_{n\in\mathbb{Z}}
+			\end{align*}
+			亦即将序列中的每个元素向左移动一位.
+		\end{definition}
+		
+	\end{frame}
+	
+	\begin{frame}{课题简介-通有性和稠密性}
+	
+	\begin{itemize}
+		\item 寻找符号动力系统中有“代表性”的系统
+		\item “代表性”的刻画与子系统空间$\mathcal{S}$上的Hausdorff度量
+		\item 通有性和稠密性
+	\end{itemize}
+	
+	\begin{definition}[通有性和稠密性]
+		一个子系统的拓扑性质$P$是通有的,若$\mathcal{S}$中满足此性质$P$的子系统在Hausdorff度量下构成稠密的$G_\delta$集.
+		
+		若去掉要求“构成$G_\delta$集”,则称此拓扑性质是稠密的.
+	\end{definition}
+	我们希望找到某些通有的或是稠密的性质,以之选出有代表性的子系统.
+	\end{frame}
+	
+	\begin{frame}{前沿进展-拓扑熵观点}
+		粗略来讲,拓扑熵刻画了动力系统中轨道复杂度的指数增长率.围绕这一概念产生了丰富的结果,如:
+		\begin{itemize}
+			\item 零熵系统是通有的.
+			\item 熵为$c$的系统在熵不小于$c$的系统构成的子空间中是通有的.
+		\end{itemize}
+	\end{frame}
+	
+	\begin{frame}{前沿进展-测度观点}
+		若在动力系统的相空间上赋以概率测度,并考虑全体保测度动力系统,则可以得到另一批结果:
+		\begin{itemize}
+			\item 强混合系统是通有的.
+			\item 若考虑动力系统的乘积扩充,则相对弱混合的系统是通有的.
+		\end{itemize}
+		
+		\begin{definition}[动力系统的扩充]
+			令$(Y,\mathcal{B}_X,\nu,T_0 )$是标准概率空间上的动力系统,他的一个扩充系统指动力系统$(X\times Y,\mathcal{B}_X\otimes\mathcal{B}_Y,\mu\otimes\nu,T)$.而$T$向$X$的投影正是$T_0$:
+			\begin{align*}
+				\pi\circ T=T_0
+			\end{align*}
+		\end{definition}
+		
+	\end{frame}
+	
+	
+	
+	\section{我们关心的问题}
+	
+	\begin{frame}{我们关心的问题}
+		\begin{itemize}
+			\item 零熵系统通有性的细致刻画:零熵的子系统仍然有丰富的结构,其中是否包含了更精细的通有性质?
+			\item 扩充系统中的相对通有性:有限熵系统可以扩充为符号动力系统中的某个子系统.在诸多可行扩充构成的空间中,是否有通有性质存在?
+		\end{itemize}
+	\end{frame}
+	
+	
+	
+	
+	\section{研究计划}
+	\begin{frame}{研究计划}
+	\begin{itemize}
+		\item 2021年11月至2022年2月学习拓扑动力系统及群上的不变测度的初步知识;
+		\item 2022年1月至3月研究零熵系统的结构,寻找复杂性为多项式或次指数级的子移位系统;
+		\item 2022年4月至6月研究零熵系统的扩充在扩充系统中的通有性;
+		\item 2022年7月至9月完成论文或问题综述的撰写.
+	\end{itemize}
+	
+
+	\end{frame}
+
+\end{CJK}
+\end{document}

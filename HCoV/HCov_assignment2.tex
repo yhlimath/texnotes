@@ -1,0 +1,61 @@
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{mathrsfs}
+\usepackage{amssymb}
+\usepackage{dcolumn}
+\usepackage{graphicx}
+\usepackage{fancybox}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amsrefs}
+\usepackage{tikz-cd}
+
+\usepackage{CJK}
+
+
+\newtheorem{definition}{Definition}
+\newtheorem{theorem}{Theorem}
+\newtheorem{proposition}{Proposition}
+\newtheorem{lemma}{Lemma}
+\newtheorem{corollary}{Corollary}
+\newtheorem{example}{Example}
+\newtheorem{remark}{Remark}
+
+\renewcommand{\today}{\number\year.\number\month.\number\day}
+
+
+
+
+
+
+\begin{document}
+
+
+\title{Assignment 2}
+\author{Li Yueheng s2306706}
+
+\maketitle
+
+
+\section*{Problem 5}
+
+
+$\forall z \in A_{r,R}(z_0)$, suppose $z=z_0+le^{i\theta}$. Define $d:=\min\{{\frac{1}{2}(l-r),\frac{1}{2}(R-l) }\}$. We claim that the open neighborhood $B_d(z)$ of $z$ that lies within $A_{r,R}(z_0)$.
+
+Proof of the claim: $\forall w\in B_{d}(z)$, by the triangle inequality we have
+\begin{align*}
+	r< l-d \leq ||z_0-z|-|z-w|| \leq|z_0-w|\leq |z_0-z|+|z-w|\leq l+d <R
+\end{align*}
+Therefore every point in $B_d(z)$ lies in $A_{r,R}(z_0)$.
+
+Therefore $A_{r,R}(z_0)$ is open.
+
+\section*{Problem 6}
+Notice that $\mathbb{Q}\times i\mathbb{Q}$ is a countable dense set in $\mathbb{C}$ due to the following reasons:
+
+1.$Q$ is dense in $\mathbb{R}$, so every complex number can be approximated by a complex number in $\mathbb{Q}\times i\mathbb{Q}$ in the sense that both its real and imaginary parts are approximated to any accuracy.
+
+2. the inequality $|z|\leq |Rez|+|Imz|$ shows the approximation in 1. is also an approximation in the sense of the metric topology on the complex plane.
+
+3.$\mathbb{Q}\times i\mathbb{Q}$ is a countable set, which is due to the diagonal rule of Cantor and the countability of $\mathbb{Q}$ (which is also due to the diagonal rule)
+\end{document}

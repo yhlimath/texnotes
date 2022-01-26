@@ -1,0 +1,137 @@
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{mathrsfs}
+\usepackage{amssymb}
+\usepackage{dcolumn}
+\usepackage{graphicx}
+\usepackage{fancybox}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amsrefs}
+\usepackage{tikz-cd}
+
+\usepackage{CJK}
+
+
+\newtheorem{definition}{Definition}
+\newtheorem{theorem}{Theorem}
+\newtheorem{proposition}{Proposition}
+\newtheorem{lemma}{Lemma}
+\newtheorem{corollary}{Corollary}
+\newtheorem{example}{Example}
+\newtheorem{remark}{Remark}
+
+\renewcommand{\today}{\number\year.\number\month.\number\day}
+
+
+
+
+
+
+\begin{document}
+
+
+\title{Assignment 1}
+\author{Li Yueheng s2306706}
+
+\maketitle
+
+\section*{Question 1}
+We need to assume that $X$ and $V$ are normed linear spaces, otherwise boundedness would be ambiguous.
+
+Define addition and multiplication by numbers on $Hom(X,V)$ as follows:
+\begin{align*}
+	&\forall f,g\in Hom(X,V), \forall x\in X, \forall \lambda \in \mathbb{R}, \\
+	&(f+g)(x):=f(x)+g(x),\\
+	&(\lambda f)(x):=\lambda f(x)
+\end{align*}
+Thus, $Hom(X,V)$ becomes a linear space. $B(X,V)$ inherits these operations. To prove $B(X,V)$ is a subspace, we need only verify it is closed under such operations.
+
+Suppose $||f||=M$, $||g||=N$. By triangle inequality we have the following estimates
+\begin{align*}
+	&||(f+g)(x)||\leq ||f(x)||+||g(x)||\leq (M+N)||x|| \\
+	&i.e.||f+g||\leq M+N \\
+	&||(\lambda f)(x)||=|\lambda|||f(x)||\leq |\lambda|M||x|| \\
+	&i.e. ||\lambda f||\leq |\lambda M|
+\end{align*}
+Therefore $B(X,V)$ is closed under addition and multiplication by numbers, so it is a linear space.
+
+\section*{Question 2}
+
+Sets of the form $\widetilde{v}:=v+S=\{v+w:w\in S\}$
+are elements of $X/S$.
+
+Define addition and scalar multiplication on $X/S$ as
+\begin{align*}
+	&\widetilde{u}+\widetilde{v}:=\widetilde{u+v} \\
+	&\lambda \widetilde{u}:=\widetilde{\lambda u}
+\end{align*}
+Since $S$ is closed under addition and scalar multiplication, these operations are well-defined (do not depend on the choice of $v$ that represents $\widetilde{v}$ in the operations)
+
+Simple calculation yields that these operations satisfy the axioms of linear space. So $X/S$ is a linear space under such operations.
+\begin{align*}
+	&\widetilde{u}+\widetilde{v}=\widetilde{v}+\widetilde{u} \\
+	&(\widetilde{u}+\widetilde{v})+\widetilde{w}=\widetilde{u}+(\widetilde{v}+\widetilde{w}) \\
+	&\widetilde{0}+\widetilde{u}=\widetilde{u} \\
+	&\widetilde{u}+\widetilde{-u}=\widetilde{0}\\
+	&1\widetilde{u}=\widetilde{u} \\
+	&\lambda(\widetilde{u}+\widetilde{v} )=\lambda\widetilde{u}+\lambda\widetilde{v} \\
+	&(\lambda+\eta )\widetilde{u}=\lambda\widetilde{u}+\eta\widetilde{u}
+\end{align*}
+
+
+\section*{Question 3}
+
+$|x(t)-y(t)|\geq 0$ implies $\rho(x,y)\geq 0$. From the property of integration and the fact that both $x$ and $y$ are continuous, $\rho(x,y)=0$ iff $|x(t)-y(t)|=0$, that is, x=y.
+
+
+$|x(t)-y(t)|=|y(t)-x(t)|$ implies $\rho(x,y)=\rho(y,x)$
+
+$|x(t)-y(t)|\leq |x(t)-z(t)|+|z(t)-y(t)|$ implies $\rho(x,y)\leq \rho(x,z)+\rho(z,y)$
+
+Therefore $\rho$ is a metric.
+
+
+
+\section*{Question 4}
+
+\subsection*{4.1}
+Note that if $f(x)=y$, then $f^{-1}(B_{\varepsilon}(y))=B_{\varepsilon}(x)$ as $f$ is a one-to-one isomorphism. Same argument applies to $f^{-1}$, so both $f$ and $f^{-1}$ are continuous.
+
+\subsection*{4.2}
+Suppose $f$ is an isomorphism between $\mathbb{R}
+$ and $\mathbb{R}^2$. Let $f(0)=y$.
+
+Notice that 
+\begin{align*}
+	f^{-1}(\partial B_1(y) )=\{-1,1\}
+\end{align*}
+$\partial B_1(y)$ is an infinite set and $\{-1,1\}$ is finite. This contradicts the fact that $f$ is one-to-one.
+
+
+\section*{Question 5}
+\begin{align*}
+	&\frac{1}{4}(\|x+y\|^2-\|x-y\|^2+i\|x+iy\|^2-i\|x-iy\|^2 ) \\
+	=&\frac{1}{4}(<x+y,x+y>-<x-y,x-y>+i<x+iy,x+iy>-i<x-iy,x-iy> ) \\
+	=&\frac{1}{4}(<x,x>+<x,y>+\overline{<x,y>} +<y,y>-<x,x>+<x,y>+\overline{<x,y>}-<y,y> \\
+	&+i<x,x>+<x,y>-<y,x>-i<y,y>-i<x,x>+<x,y>-<y,x>+i<y,y>) \\
+	=&<x,y>
+\end{align*}
+This identity associates an inner product with the norm it induces by directly representing the former with the latter.
+
+
+\section*{Question 6}
+\subsection*{6.1}
+$\forall (x,y)\notin A$, $y\neq tanx$. By the continuity of the tangent function, there is a neighborhood $U$ of $x$ and $V$ of $y$ such that $f(U)\cap V=\emptyset$. Therefore $\forall (x,y)\in U\times V$, $(x,y)\notin A$, which means $A$ is closed.
+
+\subsection*{6.2}
+Suppose $W$ is an open set in $\mathbb{R}^2$, $\forall z\in W$, there exists $B_{r}(z)\subset W$. So $(\pi_1(z)-r,\pi_1(z)+r)\subset \pi_1(W)$. Since $\pi_1(z)$ can be any point in $\pi_1(W)$, $\pi_1(W)$ is open. So $\pi_1$ is an open map.
+
+$\pi_1$ is the first coordinate of the identity map on $\mathbb{R}^2$. Since the latter is obviously continuous, it follows that $\pi_1$ is continuous as well.
+
+$\pi_1(A)=(-\frac{\pi}{2},\frac{\pi}{2} )$ is not a closed set while $A$ is. So $\pi_1$ is not closed.
+
+
+
+
+\end{document}

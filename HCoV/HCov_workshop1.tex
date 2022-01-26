@@ -1,0 +1,68 @@
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{mathrsfs}
+\usepackage{amssymb}
+\usepackage{dcolumn}
+\usepackage{graphicx}
+\usepackage{fancybox}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amsrefs}
+\usepackage{tikz-cd}
+
+
+
+
+\newtheorem{definition}{Definition}
+\newtheorem{theorem}{Theorem}
+\newtheorem{proposition}{Proposition}
+\newtheorem{lemma}{Lemma}
+\newtheorem{corollary}{Corollary}
+\newtheorem{example}{Example}
+\newtheorem{remark}{Remark}
+
+\renewcommand{\today}{\number\year.\number\month.\number\day}
+
+
+
+
+
+
+\begin{document}
+
+\title{Workshop 1}
+\author{Li Yueheng}
+\maketitle
+
+
+\section*{Problem 6}
+Note that the equation would lead to a contradiction
+\begin{align*}
+	1=|z|=|z+2(1+i)|\geq ||z|-|2(1+i)||=2\sqrt{2}-1>1
+\end{align*}
+Therefore such $z$ must not exist.
+
+\section*{Problems 7\&8}
+let $z=a+bi$.
+Note that
+\begin{align*}
+	|z|=\sqrt{a^2+b^2} \\
+	|Re(z)|=|a| \\
+	|Im(z)|=|b|
+\end{align*}
+Since $2|ab|\leq a^2+b^2$, we have
+\begin{align*}
+	|z|^2=a^2+b^2\leq a^2+b^2+2|ab|=(|a|+|b|)^2\leq 2(a^2+b^2)=(\sqrt{2}|z|)^2
+\end{align*}
+
+Since all the terms in the desired inequalities are nonnegative, the above inequalities give the results we need. 
+
+The first inequality becomes an equality iff $ab=0$, i.e. $z$ is real or imaginary. While the second becomes an equality iff $|a|=|b|$. These directly follows from the inequalities above.
+
+\section*{Problem 9}
+
+Suppose there is such relation, consider $i$. Without loss of generality, assume $i>0$, then it leads to $-1=i^2>0$. So an order on $\mathbb{C}$ cannot be consistent with the order on $\mathbb{R}$. 
+
+
+
+\end{document}
