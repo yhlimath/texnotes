@@ -1,0 +1,96 @@
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{mathrsfs}
+\usepackage{amssymb}
+\usepackage{dcolumn}
+\usepackage{graphicx}
+\usepackage{fancybox}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amsrefs}
+\usepackage{tikz-cd}
+
+\usepackage{CJK}
+
+
+\newtheorem{definition}{Definition}
+\newtheorem{theorem}{Theorem}
+\newtheorem{proposition}{Proposition}
+\newtheorem{lemma}{Lemma}
+\newtheorem{corollary}{Corollary}
+\newtheorem{example}{Example}
+\newtheorem{remark}{Remark}
+
+\renewcommand{\today}{\number\year.\number\month.\number\day}
+
+
+
+
+
+
+\begin{document}
+
+
+\title{Topological Entropy}
+\author{Li Yueheng}
+
+\maketitle
+
+
+\section{Review: definition using metric}
+
+Assume $(X,d,f)$ to be a topological dynamical system on a compact metric space, and introduce a family of metrics $\{d_n\}$ on $X$:
+\begin{align*}
+	d_n(x,y):=\max_{0\leq i\leq n-1}d(f^i(x),f^i(y))
+\end{align*}
+
+A finite subset of $X$ whose $\varepsilon$-neighborhoods under the metric $d_n$ spans $X$ is a \emph{ $(\varepsilon,n)$-spanning set} of $X$. A finite set whose points are distanced from each other at least $\varepsilon$ under $d_n$ is a\emph{ $(\varepsilon,n)$-separated set}. Note that $d_n(x,y)\leq d_{n+1}(x,y)$, so each $(\varepsilon,n)$-neighborhood grows smaller as $n$ grows to infinity.
+
+Define 
+\begin{align*}
+	minspan(\varepsilon,n ):=\min\{\#S:\text{$S$ is an $(\varepsilon,n )$-spanning set of $X$}\} \\
+	maxsep(\varepsilon,n ):=\max\{\#S:\text{$S$ is an $(\varepsilon,n )$-separated set of $X$ }\}
+\end{align*}
+
+Note the inequality 
+\begin{align*}
+	minspan(\varepsilon,n )\leq maxsep(\varepsilon,n )\leq minspan(\frac{1}{2}\varepsilon,n )
+\end{align*}
+which leads to the definition of topological entropy as follows:
+\begin{definition}[Topological entropy]
+$$h(X,f):=\lim_{\varepsilon\rightarrow0}\limsup_{n\rightarrow\infty}\frac{1}{n}\log minspan(\varepsilon,n )=\lim_{\varepsilon\rightarrow0}\limsup_{n\rightarrow\infty}\frac{1}{n}\log  maxsep(\varepsilon,n )$$
+\end{definition}
+
+
+
+\section{Definition using covers}
+
+In this section we intend to give the definition of topological entropy without seeking help from metric (which does not always exist on topological spaces)
+
+Assume $X$ to be Haussdorf. Consider a finite open covering $\{U_n\}$ of $X$. We try to keep track of which open sets a point will fall under the dynamic defined by $f$. i.e. to consider sets of the form
+\begin{align*}
+	\bigcap_{i=0}^{n-1}f^{-i}(U_{j_i})
+\end{align*}
+This set consists of all the points that start in $U_{j_0}$, and travel through $U_{j_1},U_{j_2},\dots,U_{j_{n-1}}$ in order. Given $n$, the total amount of sets of this type measures the complexity of the system at time $n$.
+
+
+Suppose $\mathcal{A}$ and $\mathcal{B}$ are covers and each element of $\mathcal{B}$ is contained in an element of $\mathcal{A}$, then $\mathcal{B}$ is a \emph{refinement} of $\mathcal{A}$. Write $\mathcal{A}\prec \mathcal{B}$.
+
+$\mathcal{A} \bigvee \mathcal{B}:=\{A\cap B:A\in \mathcal{A},B\in\mathcal{B}\}$ is a refinement of both $\mathcal{A}$ and $\mathcal{B}$. To measure the growth rate of complexity of a dynamical system, for any covering $\mathcal{A}$ of $X$, consider a covering defined as 
+\begin{align*}
+\mathcal{A}^{n}:=\bigvee_{i=0}^{n-1}f^{-i}(\mathcal{A})	
+\end{align*}
+Use $N(\mathcal{A}^n)$ to denote the smallest cardinality of a finite subcover of $\mathcal{A}^n$. $H(\mathcal{A}^n):=\log N(\mathcal{A}^n)$. The\emph{ entropy with respect to covering $\mathcal{A}$} is 
+\begin{align*}
+	h(\mathcal{A}):=\lim_{n\rightarrow\infty}\frac{1}{n}H(\mathcal{A}^n)
+\end{align*}
+and the entropy of the system is 
+\begin{align*}
+	h:=\sup\{h(\mathcal{A}):\mathcal{A}\mbox{ is an open covering of $X$}\}
+\end{align*}
+
+
+Now we clarify 
+
+
+\end{document}

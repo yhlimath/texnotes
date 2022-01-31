@@ -16,7 +16,7 @@
 
  
 
-\title{HCov Skills Assignment 1}
+\title{HCoV Skills Assignment 1}
 \author{Li Yueheng, s2306076}
 
 \begin{document}
@@ -27,46 +27,48 @@
 
 \section{Communication exercise} % lines formatted like this should be section headings
 
-\begin{figure}
+\begin{figure}[h]\label{fig_example_figure}
     \centering
     \includegraphics[width=0.4\textwidth]{d7.png}
-    \caption{Caption}
+    \caption{Example Figure}
 \end{figure}
 
+Figure \ref{fig_example_figure} consists of a hexagon cut from the outside by a circle. Two of the hexagon's neighboring  vertices are colored blue. Three non-neighboring edges of the hexagon, including the one joining the blue vertices, are extended to form an equilateral triangle. All vertices but the two blue ones are colored black.
 
-Replace this paragraph with your description of the figure, including a proper reference to it.
 
 
-2. Holomorphic functions
+
+\section{Holomorphic functions}
 
 \begin{prop}\label{prop:fCtoRconst} % Leave this proposition as it is.
 Suppose the function \( f \) is holomorphic on \( \mathbb{C} \) and takes only real values. It follows that \( f \) must be constant.
 \end{prop}
 
 \begin{proof}
-Give a clear, brief, and well-formatted proof of Proposition~\ref{prop:fCtoRconst} here. You will likely want to use the Cauchy-Riemann equations.
+Since $f$ is holomorphic on the complex plane $\mathbb{C}$, it should satisfy the Cauchy-Riemann equations anywhere on $\mathbb{C}$. Since $f$ takes only real values, from the Cauchy-Riemann equations we have
+\begin{align*}
+	&\partial_x f=\partial_y 0=0 \\
+	&\partial_y f=-\partial_x 0 =0
+\end{align*}
+Therefore $f$ is continuously differentiable on $\mathbb{C}$. By the Fundamental theorem of Calculus, $f$ is a constant function on any line parallel to the x-axis or the y-axis. It follows that $f$ is a constant function on $\mathbb{C}$.
 \end{proof}
 
 
-\subsection{Microwriting}
+\section{Microwriting}
 
-Plagiarism is the act of copying others' work without appropriate acknowledgement or one's own previously assessed, either intentionally or unintentionally.
+Plagiarism is the act of copying others' work without appropriate acknowledgement or one's own previously assessed, either intentionally or unintentionally.\cite{1}
 
-Collusion is a particular type of plagiarism, where students work in unauthorized collaboration in an assessed work.
+Collusion is a particular type of plagiarism, where students work in unauthorized collaboration to complete an assessed work.\cite{1}
 
+Suspected academic misconduct, including plagiarism and collusion will lead to an investigation conducted by the university's officials, who will determine appropriate penalties for confirmed academic misconduct. These penalties might include grade penalties, disciplinary actions and even expulsion from the university.\cite{2,3}
 
+\begin{thebibliography}{99}
 
+	\bibitem{1} https://teaching.maths.ed.ac.uk/main/undergraduate/studies/assessment/academic-misconduct
+	
+	\bibitem{2}https://www.scanmyessay.com/plagiarism/consequences-of-plagiarism.php
+	
+	\bibitem{3}https://www.scribbr.co.uk/preventing-plagiarism/consequences-of-plagiarism/
+\end{thebibliography}
 
-
-% You should reference any material you use
-%
-%\begin{thebibliography}{9}
-%
-%\bibitem{Conway} 
-%John B. Conway. 
-%\textit{Functions of One Complex Variable I}. 
-%Springer, 2010.
-%
-%\end{thebibliography}
-%
 \end{document}
