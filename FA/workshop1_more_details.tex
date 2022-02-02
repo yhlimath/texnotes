@@ -1,0 +1,94 @@
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{mathrsfs}
+\usepackage{amssymb}
+\usepackage{dcolumn}
+\usepackage{graphicx}
+\usepackage{fancybox}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amsrefs}
+\usepackage{tikz-cd}
+\usepackage{color}
+
+\usepackage{CJK}
+
+
+\newtheorem{definition}{Definition}
+\newtheorem{theorem}{Theorem}
+\newtheorem{proposition}{Proposition}
+\newtheorem{lemma}{Lemma}
+\newtheorem{corollary}{Corollary}
+\newtheorem{example}{Example}
+\newtheorem{remark}{Remark}
+
+\renewcommand{\today}{\number\year.\number\month.\number\day}
+
+
+
+
+
+
+\begin{document}
+
+
+\title{Workshop 1}
+\author{Li Yueheng s2306706}
+
+
+\maketitle
+
+
+\section*{Problem 4(c)}
+
+Consider the Fourier series of $f(x)=(x-\frac{1}{2})^2$:
+\begin{align*}
+	c_n&=\int_{\mathbb{T}}f(x)e^{-i2\pi nx}dx \\
+	&\textcolor{red}{=\int_{0}^{1}(x-\frac{1}{2} )^2e^{-i2\pi nx}dx}
+	\end{align*}
+	\textcolor{red} {by substitution of variables formula we have}
+	\begin{align*}
+	&\textcolor{red}{c_n=\int_{-\frac{1}{2}}^{\frac{1}{2}}x^2 e^{-i2\pi n(x+\frac{1}{2} )}dx}
+	\end{align*}
+	\textcolor{red}{notice that $e^{-in\pi}=(-1)^n$, $x^2e^{-i2\pi nx}$ has even real part and odd imaginary part, and the integral domain $[-\frac{1}{2},\frac{1}{2} ]$ is symmetric with respect to the origin, we have}
+	\begin{align*}
+	\textcolor{red}{c_n=(-1)^{n}\int_{-\frac{1}{2}}^{\frac{1}{2}}x^2\cos(2\pi nx)dx}
+	\end{align*}
+	\textcolor{red}{integrate by parts,}
+	\begin{align*}
+	c_n=\frac{2}{(2\pi n)^2} ,\forall n\neq 0
+	\end{align*}
+	\textcolor{red}{and}
+	\begin{align*}
+	c_0=\frac{1}{12}
+\end{align*}
+therefore \textcolor{red}{by Euler's identity $e^{i\theta}=\cos\theta+i\sin\theta$, we have}
+\begin{align}\label{1}
+	f(x)\sim \frac{1}{12}+\sum_{n\in\mathbb{Z}}c_ne^{i2\pi nx}=\frac{1}{12}+\sum_{n\geq 1}\frac{\cos(2\pi nx)}{(\pi n)^2}
+\end{align}
+\textcolor{red}{Notice that}
+\begin{align*}
+	\textcolor{red}{0\leq\frac{1}{n^2}\leq\int_{n-1}^{n}\frac{1}{x^2}dx}
+	\end{align*}
+	\textcolor{red}{and}
+	\begin{align*}
+	\textcolor{red}{\int_{1}^{\infty}\frac{
+	1}{x^2}dx=1 <\infty}
+\end{align*}
+\textcolor{red}{so the series $\sum_{n\geq 1}\frac{1}{n^2}$ converges absolutely.}
+
+\textcolor{red}{Since the cosine functions are bounded,}
+the right hand side series of formula \ref{1} converges uniformly \textcolor{red}{by the Weierstrass M test} .
+Each of its term is a continuous function, which implies it converges to a continuous function.\textcolor{red}{ While $f$ is continuous, $f$ and the series are continuous functions with identical Fourier series.} Therefore they coincide.
+
+
+\section*{Problem 4(d)}
+take $x=1$ in formula \ref{1} to find 
+\textcolor{red}{
+\begin{align*}
+	\frac{1}{4}=f(1)&=\frac{1}{12}+\sum_{n\geq 1}\frac{1}{(\pi n)^2} \\
+	\frac{1}{6}&=\sum_{n\geq 1}\frac{1}{(n\pi)^2}\\
+	\sum_{n\geq 1}\frac{1}{n^2}&=\frac{\pi^2}{6}
+\end{align*}
+}
+\end{document}
