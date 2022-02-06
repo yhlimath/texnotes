@@ -1,0 +1,171 @@
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{mathrsfs}
+\usepackage{amssymb}
+\usepackage{dcolumn}
+\usepackage{graphicx}
+\usepackage{fancybox}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amsrefs}
+\usepackage{tikz-cd}
+
+\usepackage{CJK}
+
+
+\newtheorem{definition}{Definition}
+\newtheorem{theorem}{Theorem}
+\newtheorem{proposition}{Proposition}
+\newtheorem{lemma}{Lemma}
+\newtheorem{corollary}{Corollary}
+\newtheorem{example}{Example}
+\newtheorem{remark}{Remark}
+
+\renewcommand{\today}{\number\year.\number\month.\number\day}
+
+
+
+
+
+
+\begin{document}
+
+
+\title{Assignment 2}
+\author{Li Yueheng s2306706}
+
+\maketitle
+
+
+\section*{Question 1}
+\subsection*{a}
+$$A:=\{(x_1,x_2):f(x_1)=f(x_2)\} $$
+For any $y_1\in Y$, $y_2\in Y$ and $y_1\neq y_2$, choose $x_1,x_2$ such that $f(x_i)=y_i$. Then $(x_1,x_2)\notin A$. Since $A$ is closed, there exists  an open neighborhood $W$ of $(x_1,x_2)$ such that $W\cap A=\emptyset$. From the definition of product topology on $X\times X$ we know there exists $U\times V$ such that 
+\begin{enumerate}
+	\item $U$ and $V$ are open neighborhoods of $x_1$ and $x_2$.
+	\item $U\times V \subset W \subset A^c$.
+\end{enumerate}
+Since $f$ is open, $f(U)$ and $f(V)$ are open neighborhoods of $y_1$ and $y_2$. They cannot intersect, otherwise there exist $z\in U$ and $w\in V$ such that $f(w)=f(z)$, thus $(z,w)\in A$, but $(z,w)\in U\times V\subset W \subset A^c$, a contradiction. Hence $f(U)$ and $f(V)$ are disjoint open neighborhoods of $y_1$ and $y_2$, so $Y$ is Huasdorff.
+
+
+\subsection*{b}
+$$B:=\{x:f(x)=g(x)\}$$
+
+For any $x\notin B$, $f(x)\neq g(x)$. Since $Y$ is Hausdorff, there exist disjoint open neighborhoods of $f(x)$ and $g(x)$, namely $U$ and $V$. Then $W:=f^{-1}(U)\cap g^{-1}(V)$ is en open neighborhood of $x$ and $W\cap B=\emptyset$. Hence $B^c$ is open, i.e. $B$ is closed. 
+
+
+
+
+
+\section*{Question 2}
+\subsection*{a}
+Suppose $f:[0,1]\to (0,1)$ is a homeomorphism, then $\tilde{f}:=f|_{(0,1]}$ is a homeomorphism between $(0,1]$ and $(0,1)-\{f(0) \}$. While $ (0,1]$ is path connected, the other is not, which leads to a contradiction. So $f$ must not exist.
+
+
+
+
+\subsection*{b}
+Suppose $f:\mathbb{R}^2\to \mathbb{R}$ is a homeomorphism. Then $\tilde{f}:=f|_{x\neq 0}$ is a homeomorphism between the punctured plane and $\mathbb{R}-\{f(0)\}$. The punctured plane is path connected while $\mathbb{R}-\{f(0)\}$ isn't. Hence $f$ must not exist.
+
+
+
+
+\section*{Question 3}
+
+
+Let $A$ and $B$ be two disjoint closed sets on the Sorgenfrey line. 
+
+For each $a\in A$, since $a\in B^c$ and $B$ is a closed set, $a$ has an open neighborhood that lies within $B^c$. Therefore, there exists an element of the topological base, $[a,a')$ such that $[a,a')\subset B^c$. Define an open neighborhood of $A$ as
+\begin{align*}
+	U:=\bigcup_{a\in A}[a,a') 
+	\end{align*}
+Similarly define an open neighborhood $V$ for $B$:
+\begin{align*}
+	V:=\bigcup_{b\in B}[b,b')
+\end{align*}
+where each $[b,b')$ is an open neighborhood of $b$ that does not intersect $A$.
+
+For any pair $a\in A, b\in B$, without loss of generality assume $a<b$. 
+Since $[a,a') \subset B^c$, we have $[a,a')\cap [b,b')=\emptyset$. Thus $U\cap V=\emptyset$. Hence the Sorgenfrey line is $T_4$.
+
+
+
+
+\section*{Question 4}
+\subsection*{a}
+Let $l_0\in l^\infty$ and $\Vert l_0 \rVert_\infty=1$. $l_{n+1}:=Tl_n$. $r_n:=\lVert l_n\rVert_\infty$. Then
+\begin{align*}
+	\lVert T^k  \rVert = \max_{\lVert l_0\rVert_\infty=1}\lVert T^k l_0 \rVert = \max_{\lVert l_0 \rVert_\infty=1}r_k
+\end{align*}
+Suppose 
+\begin{align*}
+	l_n=(a_1,a_2,a_3,\dots) 
+\end{align*}
+then
+\begin{align*}
+	&l_{n+1}=(a_1+a_2,a_1,a_2,\dots) \\
+	&l_{n+2}=(a_1+a_2+a_1,a_1+a_2,a_1,\dots)
+\end{align*}
+thus $r_{n+2}\leq r_{n+1}+r_n$ and with equality for $l_0=(1,1,0,\dots)$.
+Therefore $$\lVert T^k \rVert=\frac{1}{\sqrt{5}}((\frac{1+\sqrt{5}}{2} )^{k+2}-(\frac{1-\sqrt{5}}{2})^{k+2} )$$
+and
+\begin{align*}
+	r(T)=\lim_{k\to\infty} \lVert T^k\rVert^{1/k}=\frac{1+\sqrt{5}}{2}
+\end{align*}
+
+\subsection*{b}
+Suppose $\lambda$ is an eigenvalue of $T$ and $v$ is its corresponding eigenvector with $\lVert v \rVert_\infty=1$. Then
+\begin{align*}
+	&|\lambda|=\frac{\lVert Tv\rVert_\infty}{\lVert v\rVert_\infty}\leq \max_{\lVert v\rVert_\infty=1}\frac{\lVert Tv\rVert_\infty}{\lVert v\rVert_\infty}=\lVert T\rVert \\
+	&|\lambda |=(|\lambda|^k)^{1/k}=(\frac{\lVert T^k v\rVert_\infty}{\lVert v\rVert_\infty} )^{1/k}\leq \lVert T^k\rVert^{1/k}
+\end{align*}
+taking limits on both sides yield $|\lambda|\leq r(T)$.
+
+\section*{Question 5}
+Let $J=[a,b]$ be any bounded closed interval. Suppose $\{U_i\}_{i\in I}$ is an open cover of $J$ but does not have a finite subcover. Divide J by half into two closed intervals 
+\begin{align*}
+	J_{11}=[a,\frac{a+b}{2}] \quad  J_{12}=[\frac{a+b}{2},b]
+\end{align*}
+
+Then, at least one of these two intervals does not have a finite subcover. Again divide this interval without finite subcover by half and repeat to choose the one without finite subcover. Such process lasts endlessly and will result in a series of nested intervals, every one of them does not have a finite subcover. By the nested intervals theorem, there is a point $x_0$ that belongs to all the intervals. Since $\{U_i\}_{i\in I}$ covers $J$, there should be an open set $U_{i_0}$ such that $x_0\in U_{i_0}$. But as the lengths of the nested intervals tend to $0$, at least one of them lies within $U_{i_0}$. This contradicts the fact that none of these intervals has a finite subcover. Hence $\{U_{i}\}_{i\in I}$ must have a finite subcover for $J$.
+
+
+
+
+\section*{Question 6}
+Firstly, we show that the weak topology $\tau$ on $X$ satisfies the given universal property:
+
+Suppose $g$ is continuous, since the weak topology makes all the $f_i$s continuous, it follows that $f_i\circ g$ is continuous.
+
+Then suppose $f_i\circ g$ is continuous for all $i$s. Fix $i$, take any open set $U_i\in \tau_i$. it follows from the continuity of $f_i$ and $f_i\circ g$ that $f_i^{-1}(U_i)\in \tau $ and 
+$g^{-1}(f^{-1}_i(U_i) )\in \tau_Z$. Thus sets of the form $f_i^{-1}(U_i)$ are pulled back by $g$ into $\tau_Z$.
+
+
+Notice that
+\begin{align*}
+	\{f_{i}^{-1}(U_i):i\in I \mbox{ and } U_i \in \tau_i \}
+\end{align*}
+form a subbase of the weak topology $\tau$. It follows that this subbase is pulled back by $g$ into $\tau_Z$. Therefore every element of $\tau$ is pulled back by $g$ into $\tau_Z$, that is, $g$ is continuous.
+
+\vspace{3ex}
+
+For the other side of the proposition, assume $\tau'$ is a topology on $X$ that satisfies the universal property. Let $(Z,\tau_Z) =(X,\tau)$ and $g=$id$:X\to X$. Since $f_i\circ g$ is continuous, $g=$id is continuous, thus every open set of $\tau'$ is an open set of $\tau$, and $\tau' \subset \tau$.
+\begin{center}
+	\begin{tikzcd}
+(X,\tau) \arrow[d, "g"] \arrow[rd,"f_i\circ g"] \\
+(X,\tau') \arrow[r,"f_i"] & (X_i,\tau_i)
+\end{tikzcd}
+\end{center}
+
+We then let $(Z,\tau_Z)=(X,\tau')$, which makes $g=$id continuous. Therefore $f_i\circ g$ is continuous according to the universal property. Hence for any $U_i \in \tau_i$, $f_i^{-1}(U_i) \in \tau'$. Since sets of the form $f_i^{-1}(U_i)$ form a subbase of the weak topology $\tau$, we may conclude that $\tau \subset \tau'$.
+
+\begin{center}
+	\begin{tikzcd}
+(X,\tau') \arrow[d, "g"] \arrow[rd,"f_i\circ g"] \\
+(X,\tau') \arrow[r,"f_i"] & (X_i,\tau_i)
+\end{tikzcd}
+\end{center}
+
+The arguments above shows that $\tau=\tau'$, thereby shows that the universal property characterizes the weak topology.
+
+\end{document}
