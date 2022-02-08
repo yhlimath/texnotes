@@ -1,0 +1,70 @@
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{mathrsfs}
+\usepackage{amssymb}
+\usepackage{dcolumn}
+\usepackage{graphicx}
+\usepackage{fancybox}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amsrefs}
+\usepackage{tikz-cd}
+
+\usepackage{CJK}
+
+
+\newtheorem{definition}{Definition}
+\newtheorem{theorem}{Theorem}
+\newtheorem{proposition}{Proposition}
+\newtheorem{lemma}{Lemma}
+\newtheorem{corollary}{Corollary}
+\newtheorem{example}{Example}
+\newtheorem{remark}{Remark}
+
+\renewcommand{\today}{\number\year.\number\month.\number\day}
+
+
+
+
+
+
+\begin{document}
+
+
+\title{Assignment 3}
+\author{Li Yueheng s2306706}
+
+\maketitle
+
+
+\section*{Question 5}
+
+Notice that 
+\begin{align*}
+	(1+z^2)^{1/2}&=((z+i)(z-i))^{1/2}=\exp\{\frac{1}{2}(\log(z+i)+\log(z-i))\} \\
+	&=:\exp\{\frac{1}{2}(g(z)+g(z))\}
+\end{align*}
+
+Since $g$ and $h$ are compositions of the logarithmic multifunction and translations, among them translations are obviously holomorphic on $D_1(0)$, it suffices to choose appropriate branches of logarithmic multifunction so that their brunch cuts do not intersect the images of $D_1(0)$ under translations. In doing so, by the composition law of holomorphic functions, the original multifunction would be holomorphic on $D_1(0)$.
+
+Notice that $i+D_1(0)=D_1(i)$ and $D_1(0)-i=D_1(-i)$. For $g$ to be holomorphic, we may define $g(z)=Log_{1,0}(z+i)$. While for $h$, define $h(z)=Log_{1,0}(z-i)$.
+
+\section*{Question 6}
+Notice that 
+\begin{align*}
+	(1+z^2)^{1/2}=(z^2(1+z^{-2}))^{1/2}=(z^2)^{1/2}(1+z^{-2})^{1/2}
+\end{align*}
+on $\mathbb{C}-\overline{D_1(0)}$.
+
+Simply choose $(z^2)^{1/2}=z$, which is holomorphic on the whole complex plane. 
+
+As for $(1+z^{-2})^{1/2}=\exp\{\frac{1}{2}\log(1+z^{-2})\}$, choose $(1+z^{-2})^{1/2}=\exp\{\frac{1}{2}Log_{3,0}(1+z^{-2})\}$. 
+
+Since $(1+z^{-2})(\mathbb{C}-\overline{D_1(0)})\subset D_2(0)$, while the branch cut of $Log_{3,0}$ lies outside $D_3(0)$, they will not intersect. Thus the branch we chose is holomorphic on $\mathbb{C}-\overline{D_1(0)}$.
+
+
+
+
+
+
+\end{document}
