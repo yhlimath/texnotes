@@ -40,18 +40,20 @@
 \section*{Question 1}
 \subsection*{a}
 $$A:=\{(x_1,x_2):f(x_1)=f(x_2)\} $$
-For any $y_1\in Y$, $y_2\in Y$ and $y_1\neq y_2$, choose $x_1,x_2$ such that $f(x_i)=y_i$. Then $(x_1,x_2)\notin A$. Since $A$ is closed, there exists  an open neighborhood $W$ of $(x_1,x_2)$ such that $W\cap A=\emptyset$. From the definition of product topology on $X\times X$ we know there exists $U\times V$ such that 
+For any $y_1\in Y$, $y_2\in Y$ and $y_1\neq y_2$, since $f$ is onto, we may choose $x_1,x_2$ such that $f(x_i)=y_i$. Then $(x_1,x_2)\notin A$. Since $A$ is closed, there exists  an open neighborhood $W$ of $(x_1,x_2)$ such that $W\cap A=\emptyset$. From the definition of product topology on $X\times X$ we know there exists $U\times V$ such that 
 \begin{enumerate}
 	\item $U$ and $V$ are open neighborhoods of $x_1$ and $x_2$.
 	\item $U\times V \subset W \subset A^c$.
 \end{enumerate}
-Since $f$ is open, $f(U)$ and $f(V)$ are open neighborhoods of $y_1$ and $y_2$. They cannot intersect, otherwise there exist $z\in U$ and $w\in V$ such that $f(w)=f(z)$, thus $(z,w)\in A$, but $(z,w)\in U\times V\subset W \subset A^c$, a contradiction. Hence $f(U)$ and $f(V)$ are disjoint open neighborhoods of $y_1$ and $y_2$, so $Y$ is Huasdorff.
+Since $f$ is open, $f(U)$ and $f(V)$ are open neighborhoods of $y_1$ and $y_2$. They cannot intersect, otherwise there exist $z\in U$ and $w\in V$ such that $f(w)=f(z)$, thus $(z,w)\in A$, but $(z,w)\in U\times V\subset W \subset A^c$, a contradiction. Hence $f(U)$ and $f(V)$ are disjoint open neighborhoods of $y_1$ and $y_2$, so $Y$ is Hausdorff.
 
 
 \subsection*{b}
 $$B:=\{x:f(x)=g(x)\}$$
 
-For any $x\notin B$, $f(x)\neq g(x)$. Since $Y$ is Hausdorff, there exist disjoint open neighborhoods of $f(x)$ and $g(x)$, namely $U$ and $V$. Then $W:=f^{-1}(U)\cap g^{-1}(V)$ is en open neighborhood of $x$ and $W\cap B=\emptyset$. Hence $B^c$ is open, i.e. $B$ is closed. 
+For any $x\notin B$, $f(x)\neq g(x)$. Since $Y$ is Hausdorff, there exist disjoint open neighborhoods of $f(x)$ and $g(x)$, namely $U$ and $V$. Since $f$ and $g$ are continuous, $f^{-1}(U)$ and $g^{-1}(V)$ are open. Then since $W:=f^{-1}(U)\cap g^{-1}(V)$ is the intersection of two open sets, $W$ itself is also open. From $f(x)\in U$ and $g(x)\in V$ we find that $x\in W$. 
+
+For any $w\in W$, we have $f(w)\in U$ and $g(w)\in V$ while $U\cap V=\emptyset$. Thus $f(w)\neq g(w)$, so $w\notin B$. Therefore $W\cap B=\emptyset$ and $x\in W$. Hence $B^c$ is open, or equivalently, $B$ is closed. 
 
 
 
@@ -59,13 +61,22 @@ For any $x\notin B$, $f(x)\neq g(x)$. Since $Y$ is Hausdorff, there exist disjoi
 
 \section*{Question 2}
 \subsection*{a}
-Suppose $f:[0,1]\to (0,1)$ is a homeomorphism, then $\tilde{f}:=f|_{(0,1]}$ is a homeomorphism between $(0,1]$ and $(0,1)-\{f(0) \}$. While $ (0,1]$ is path connected, the other is not, which leads to a contradiction. So $f$ must not exist.
+Suppose $f:[0,1]\to (0,1)$ is a homeomorphism, then $\tilde{f}:=f|_{(0,1]}$ is a homeomorphism between $(0,1]$ and $(0,1)-\{f(0) \}$. But while $ (0,1]$ is connected (because it is path connected), the other is not (because $(0,1)=(0,f(0))\cup (f(0),1)$), these two spaces cannot be homeomorphic since connectedness is invariant under homeomorphism. So, $f$ must not exist.
 
-
+\begin{lemma}[I don't know if I need to prove this lemma or not]
+Connectedness is invariant under homeomorphism.
+\begin{proof}
+		Let $f:X\to Y$ be a homeomorphism. Suppose $X$ is connected while $Y$ is not, then $Y=U\sqcup V$ where $U$ and $V$ are disjoint non-empty open sets. Since $f$ is a continuous surjection while $U$ and $V$ are non-empty, $f^{-1}(U)$ and $f^{-1}(V)$ are non-empty open sets in $X$. Since $U\cap V=\emptyset$, they are disjoint. Since $U\sqcup V=Y$, we have $f^{-1}(U)\sqcup f^{-1}(V)=X$, which contradicts the fact that $X$ is connected. 
+		
+		Suppose $Y$ is connected and $X$ isn't, the same argument applies since $f^{-1}$ is also a continuous bijection. In summary, $X$ and $Y$ must have same connectedness should they be homeomorphic.
+\end{proof}
+\end{lemma}
 
 
 \subsection*{b}
-Suppose $f:\mathbb{R}^2\to \mathbb{R}$ is a homeomorphism. Then $\tilde{f}:=f|_{x\neq 0}$ is a homeomorphism between the punctured plane and $\mathbb{R}-\{f(0)\}$. The punctured plane is path connected while $\mathbb{R}-\{f(0)\}$ isn't. Hence $f$ must not exist.
+Suppose $f:\mathbb{R}^2\to \mathbb{R}$ is a homeomorphism. Then $\tilde{f}:=f|_{x\neq 0}$ is a homeomorphism between the punctured plane and $\mathbb{R}-\{f(0)\}$. The punctured plane is path connected since we may connect any two points on the punctured plane with a spiral, and thus it is also connected. While on the other hand $\mathbb{R}-\{f(0)\}=(-\infty,f(0),)\cup (f(0),\infty)$ isn't connected.
+
+ Hence $f$ must not exist.
 
 
 
@@ -106,9 +117,27 @@ then
 	&l_{n+1}=(a_1+a_2,a_1,a_2,\dots) \\
 	&l_{n+2}=(a_1+a_2+a_1,a_1+a_2,a_1,\dots)
 \end{align*}
-thus $r_{n+2}\leq r_{n+1}+r_n$ and with equality for $l_0=(1,1,0,\dots)$.
-Therefore $$\lVert T^k \rVert=\frac{1}{\sqrt{5}}((\frac{1+\sqrt{5}}{2} )^{k+2}-(\frac{1-\sqrt{5}}{2})^{k+2} )$$
-and
+Since every term of $l_n$ present in $l_{n+1}$, we have 
+\begin{align}
+	r_{n+1}= \max\{r_n,|a_1+a_2|\}\leq 2r_{n} \label{ineq}
+\end{align}
+Since all but the first term of $l_{n+2}$ present in $l_{n+1}$, and the first term of $l_{n+2}$ can be controlled by 
+\begin{align*}
+	|a_1+a_2+a_1|\leq |a_1|+|a_1+a_2|\leq \lVert l_n\rVert +\lVert l_{n+1}\rVert=r_n+r_{n+1}
+\end{align*}
+thus we have 
+\begin{align}
+	r_{n+2}\leq r_{n+1}+r_n \label{ineq2}
+\end{align}
+Since $r_0=1$, it follows from inequality \ref{ineq} that $r_1\leq 2$. 
+
+With inequality \ref{ineq2}, it is easy to prove using induction that $r_n$ is always not greater than the $(n+1)th$ number in the Fibonacci sequence.
+
+Notice that the above inequalities becomes equality when $l_0=(1,1,0,\dots)$ and $\lVert l_0\rVert=1$. 
+
+Therefore by the general formula of the Fibonacci sequence, (I believe I could assume this formula is known? As it's a common exercise in first-year linear algebra courses)
+$$\lVert T^k \rVert= \max_{\lVert l_0\rVert=1}r_k =\frac{1}{\sqrt{5}}((\frac{1+\sqrt{5}}{2} )^{k+2}-(\frac{1-\sqrt{5}}{2})^{k+2} )$$
+and simple calculation yields
 \begin{align*}
 	r(T)=\lim_{k\to\infty} \lVert T^k\rVert^{1/k}=\frac{1+\sqrt{5}}{2}
 \end{align*}
