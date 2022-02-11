@@ -31,16 +31,139 @@
 \begin{document}
 
 
-\title{}
+\title{Assignment 2}
 \author{Li Yueheng s2306706}
 
 \maketitle
+In this document $F(x)$ is the vector field of the dynamical system we discuss.
+\section{}
+
+We first calculate the equilibriums of the system. Set
+\begin{center}
+$
+	\begin{cases}
+		\dot{x}=y-x^3=0 \\
+		\dot{y}=-x-y^3=0
+	\end{cases}
+$
+\end{center}
+trivial calculation shows that there is a unique equilibrium at $(0,0)$.
+
+Define $V=x^2+y^2$. Obviously this function is positive everywhere except at $0$, which is the unique equilibrium, and $V(0)=0$. One the other hand, 
+\begin{align*}
+	\langle \nabla V,F(x)\rangle =(2x,2y)\cdot(y-x^3,-x-y^3)^T=-2(x^4+y^4)\leq 0
+\end{align*}
+and the inequality is strict everywhere but at $(0,0)$. Thus $V$ is a Lyapunov function. 
+
+Should the system has a closed orbit $\mathcal{O}$ except fixed point, then let $x_0 \in \mathcal{O}$, there exists $T>0$ such that $\phi_T(x_0)=x_0$. 
+
+Set $x(t)$ to be the integral curve that starts at $x_0$. 
+\begin{align*}
+	\frac{d}{dt}V(x(t))=\langle \nabla V(x(t)),F(x(t))\rangle \leq0
+\end{align*}
+Since $x(t)$ does not pass $0$ which is the only point where the above inequality isn't strict, we may conclude that $V(x(t))$ decreases strictly with respect to $t$. That leads to a contradiction:
+\begin{align*}
+	V(x_0)=V(x(0))>V(x(T))=V(x_0)
+\end{align*}
+Thus there is no closed orbit.
 
 
 
 
+\section{}
+\subsection{}
+Set
+\begin{center}
+$
+	\begin{cases}
+	\dot{u}=-u+av+u^2v=0 \\
+	\dot{v}=b-av-u^2v=0
+\end{cases}
+$
+\end{center}
+the unique equilibrium is 
+\begin{center}
+$
+\begin{cases}
+	u^*=b \\
+	v^*=\frac{b}{a+b^2}
+\end{cases}
+$
+\end{center}
 
+Set $x^*:=(u^*,v^*)$. Compute the Jacobian $JF(x^*)$:
+\begin{equation*}
+	JF(x^*)=
+	\left(
+	\begin{array}{cc}
+	\partial_u F_u & \partial_v F_u \\
+	\partial_u F_v & \partial_v F_v
+	\end{array}
+	\right)(x^*)
+	=
+	\left(
+	\begin{array}{cc}
+		-1+2u^{*} v^{*} & a+u^{*2} \\
+		-2u^{*} v^{*} & -a-u^{*2}
+	\end{array}
+	\right)
+	=
+	\left(
+	\begin{array}{cc}
+		\frac{-a+b^2}{a+b^2} & a+b^2 \\
+		\frac{-2b^2}{a+b^2} & -a-b^2
+	\end{array}
+	\right)
+\end{equation*}
 
+Notice that 
+\begin{align*}
+	&Tr(JF(x^*))=\frac{-a+b^2-(a+b^2)^2}{a+b^2} \\
+	&Det(JF(x^*))=a+b^2>0
+\end{align*}
+
+Since the determinant is always positive, the equilibrium is stable iff $Tr(JF(x^*))>0$, and is unreachable, i.e. has no eigenvalue with non-negative real part, iff $Tr(JF(x^*))<0$. Thus,
+
+\begin{itemize}
+	\item $x^*$ is stable iff $-a+b^2-(a+b^2)^2<0$
+	\item $x^*$ is unreachable (or totally unstable) iff $-a+b^2-(a+b^2)^2>0$
+\end{itemize}
+
+In addition, $x^*$ cannot be a saddle point. And solutions near it are spirals iff $Tr(JF(x^*))^2-4Det(JF(x^*))<0$.
+
+\subsection{}
+First we compute the outer normal vectors for the boundaries given. For $\partial S_i$ denote its outer normal vector as $n_i$. The computations are elementary, so detailed calculations are omitted.
+\begin{align*}
+	&n_1=(0,-1) \\
+	&n_2=(1,1) \\
+	&n_3=(0,1) \\
+	&n_4=(-1,0)
+\end{align*}
+Then we estimate $\langle F(x),n_i \rangle$ on the boundaries.
+\begin{align*}
+	& F(u,v)=(-u+av+u^2v,b-av-u^2v)^T \\
+	&\langle F(x),n_1\rangle =-\dot{v}=u-av-u^2v=-b<0 \quad\mbox{since when $x\in \partial S_1$, $v\equiv 0$.} \\
+	&\langle F(x),n_2\rangle =\dot{u}+\dot{v}=b-u\leq0  \quad\mbox{since when $x\in\partial S_2$, $u\geq b$.} \\
+	&\langle F(x),n_3\rangle =\dot{v}=b-av-u^2v=-u^2v\leq 0 \quad\mbox{since when $x\in \partial S_3$, $v\equiv \frac{b}{a}$} \\
+	&\langle F(x),n_4\rangle=-\dot{u}=u-av-u^2v=-av\leq 0 \quad\mbox{since when $x\in\partial S_4$, $u\equiv 0$}
+\end{align*}
+Hence $S$ is a trapping region.
+
+\subsection{}
+The only equilibrium of the system is $x^*$, which lies within $S$ but is totally unstable. Thus we choose a small ball $B_r(x^*)$: for any $x\in \partial B_r(x^*)$,
+\begin{align}\label{eq1}
+	\langle F(x),n_x\rangle=\langle JF(x^*)(x-x^*),x-x^*\rangle+o(\lVert x-x^*\rVert^2)
+\end{align}
+Since $x^*$ is totally unstable, from the theory of linear ODE we know for $B_r(x^*)$ sufficiently small, the integral curve of the linear system $\dot{x}=JF(x^*)(x-x^*)$ that originates at $x$ must bent strictly outward $B_r(x^*)$, that is $$\langle JF(x^*)(x-x^*),x-x^*\rangle>0$$ for any $x\in\partial B_r(x^*)$. 
+Notice that $$f(x-x^*):=\langle JF(x^*)(x-x^*),x-x^*\rangle$$ is a positive continuous function defined on a compact set $\partial B_r(x^*)$, so it achieves a positive minimum $m\lVert x-x^*\rVert^2$ on it. Notice also that $f$ is a quadratic homogenous function, which means the above conclusion holds for $B_r(x^*)$ of any radius, that is, the constant $m$ does not change with respect to $r$.
+
+Therefore we may conclude that for $r$ sufficiently small, the expression \ref{eq1} is positive:
+\begin{align*}
+	\langle F(x),n_x\rangle &=\langle JF(x^*)(x-x^*),x-x^*\rangle+o(\lVert x-x^*\rVert^2)\\
+	&\geq m\lVert x-x^*\rVert^2 -o\lVert x-x^*\rVert^2 \geq 0
+\end{align*}
+
+Our final conclusion is $S-B_r(x^*)$ is positively invariant, as we've verified $\langle F(x),n\rangle\leq0$ on its boundary, where $n$ is its outer normal vector at $x$. By Poincar\'{e}-Bendixson theorem, $S-B_r(x^*)$ contains a closed orbit.
 
 
 
