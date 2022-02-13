@@ -1,0 +1,135 @@
+%\documentclass[handout]{beamer}
+\documentclass{beamer}
+%
+% See the beamer documentation at:
+% http://mirrors.ctan.org/macros/latex/contrib/beamer/doc/beameruserguide.pdf
+% for details of all the package options if you are interested.
+%
+%
+% This project is just a starting point for you to make your own
+% set of slides. Change it as you wish. Keeping it handy will probably be 
+% useful for the future too.
+%
+\mode<presentation> 
+{
+  \usetheme{default}      % or try Boadilla, Darmstadt, Madrid, Warsaw, ...
+  \usecolortheme{default} % or try albatross, beaver, crane, ...
+  \usefonttheme{default}  % or try serif, structurebold, ...
+  \setbeamertemplate{navigation symbols}{} % This turns off the navigation bar. Some people like this.
+  \setbeamertemplate{caption}[numbered]
+}
+
+\usepackage[utf8]{inputenc}
+\usepackage[UKenglish]{babel}
+\usepackage{csquotes}
+\usepackage{adjustbox}
+
+% ========= Bibliography =========
+% These lines load the `biblatex' package
+% and read in the list of references from
+% References.bib - take a look.
+%
+% To generate References.bib, I recommend https://www.mybib.com/
+% rather than trying to write the .bib file yourself.
+%
+% style=verbose because we want full citations where they are 
+% made in the presentation so that the audience doesn't
+% have to wait until the end to know what the references are.
+%
+\usepackage[style=verbose]{biblatex}
+\addbibresource{References.bib}
+% ================================
+
+\title[Short title]{Full title of presentation}
+\author{Your name, s0000000}
+\institute{The University of Edinburgh}
+\date{\today}
+
+\begin{document}
+
+% ==============================
+\begin{frame}
+  \titlepage
+\end{frame}
+% ==============================
+
+
+% ==============================
+\begin{frame}
+\frametitle{Outline}
+\tableofcontents
+\end{frame}
+% ==============================
+
+
+\section{Section heading}
+
+% ==============================
+\begin{frame}{First heading}
+
+\begin{itemize}
+  \item Item 1\pause
+  \item Item 2\pause
+  \item Item 3\pause
+\end{itemize}
+
+\end{frame}
+% ==============================
+
+
+% ==============================
+\begin{frame}{Second Heading}
+
+\begin{enumerate}
+\item Item 1
+\item Item 2
+\item Item 3
+\end{enumerate}
+
+\begin{block}{Block name}
+Some content \footcite{bickerton_2021_honours} % We can use \footcite so that the citation appears on the same slide and the audience doesn't have to wait until the end to see a list of references.
+\end{block}
+
+\begin{example}
+Some content
+\end{example}
+
+\end{frame}
+% ==============================
+
+
+\subsection{Subsection name}
+
+% ==============================
+\begin{frame}{Third heading}
+
+\begin{enumerate}
+\item Item 1
+\item Item 2
+\item Item 3
+\end{enumerate}
+
+\end{frame}
+% ==============================
+
+
+% ==============================
+\begin{frame}
+
+\begin{figure}
+    \adjincludegraphics[center, width=10cm]{knot.pdf} % This uses the adjustbox package to centre the image - the code is slightly neater than the alternatives
+    \caption{A Celtic knot}
+    \label{fig:knot}
+\end{figure}
+
+\end{frame}
+% ==============================
+
+
+% ==============================
+\begin{frame}
+\printbibliography % This command prints the cited references.
+\end{frame}
+% ==============================
+
+\end{document}
