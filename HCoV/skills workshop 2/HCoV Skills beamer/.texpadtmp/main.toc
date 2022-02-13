@@ -1,0 +1,8 @@
+\boolfalse {citerequest}\boolfalse {citetracker}\boolfalse {pagetracker}\boolfalse {backtracker}\relax 
+\babel@toc {UKenglish}{}
+\defcounter {refsection}{0}\relax 
+\beamer@sectionintoc {1}{Definition and basic properties}{3}{0}{1}
+\defcounter {refsection}{0}\relax 
+\beamer@sectionintoc {2}{Branches of the logarithm and branch cuts}{12}{0}{2}
+\defcounter {refsection}{0}\relax 
+\beamer@sectionintoc {3}{Holomorphicity gained and continuity lost}{16}{0}{3}

@@ -12,7 +12,7 @@
 %
 \mode<presentation> 
 {
-  \usetheme{default}      % or try Boadilla, Darmstadt, Madrid, Warsaw, ...
+  \usetheme{Madrid}      % or try Boadilla, Darmstadt, Madrid, Warsaw, ...
   \usecolortheme{default} % or try albatross, beaver, crane, ...
   \usefonttheme{default}  % or try serif, structurebold, ...
   \setbeamertemplate{navigation symbols}{} % This turns off the navigation bar. Some people like this.
@@ -36,12 +36,16 @@
 % made in the presentation so that the audience doesn't
 % have to wait until the end to know what the references are.
 %
+
 \usepackage[style=verbose]{biblatex}
 \addbibresource{References.bib}
+
+\newtheorem{remark}{Remark}
+\newtheorem{proposition}{Proposition}
 % ================================
 
-\title[Short title]{Full title of presentation}
-\author{Your name, s0000000}
+\title[the Complex Logarithm]{A Review of the Complex Logarithm}
+\author{Li Yueheng, s2306706}
 \institute{The University of Edinburgh}
 \date{\today}
 
@@ -62,73 +66,165 @@
 % ==============================
 
 
-\section{Section heading}
+\section{Definition and basic properties}
 
 % ==============================
-\begin{frame}{First heading}
+\begin{frame}{Definition of the complex logarithm}
+\begin{definition}[1.7.1 on p.16, Gratwick]
+		For $z\in \mathbb{C}-\{0\}$, define its \emph{logarithm} by
+	\begin{align*}
+		log(z):=\{w\in\mathbb{C}:exp(w)=z\}
+	\end{align*}
+\end{definition}\pause
 
-\begin{itemize}
-  \item Item 1\pause
-  \item Item 2\pause
-  \item Item 3\pause
-\end{itemize}
+\begin{remark}
+	The complex logarithm is a \emph{multivalued function}. We call any element of the set $log(z)$ a \emph{logarithm} of $z$.
+\end{remark}
+
+
 
 \end{frame}
 % ==============================
 
 
 % ==============================
-\begin{frame}{Second Heading}
+\begin{frame}{Basic properties of the complex logarithm}
 
-\begin{enumerate}
-\item Item 1
-\item Item 2
-\item Item 3
-\end{enumerate}
+\begin{proposition}[1.7.3 on p.16, Gratwick]
+	Let $z,w\in\mathbb{C}-\{0\}$, and $z=re^{i\theta}$ in exponential form. Then
+	\begin{enumerate}
+		\item $\log(z)=\{\ln r+i\theta+i2\pi k:k\in\mathbb{Z}\}$\quad (Depiction of the set $\log(z)$)\pause
+		\item $\log(zw)=\log(z)+\log(w)$\quad(Law of multiplication)\pause
+		\item $\log(1/z)=-\log(z)$\quad (Law of reciprocal)\pause
+	\end{enumerate}
+\end{proposition}
+	
+\begin{remark}
+	These statements should be understood as equalities between \emph{sets}.
+\end{remark}
 
-\begin{block}{Block name}
-Some content \footcite{bickerton_2021_honours} % We can use \footcite so that the citation appears on the same slide and the audience doesn't have to wait until the end to see a list of references.
-\end{block}
+
+\end{frame}
+% ==============================
+\begin{frame}{Sketch of proof}
+	1.
+	Let $w=a+ib$ and solve the equation
+		$$exp(w)=exp(a+ib)=re^{i\theta}=z$$
+	to find all $w\in log(z)$.\pause
+\vspace{3ex}
+
+	2.
+	The law of multiplication follows directly from our depiction of the logarithm.\pause
+\vspace{3ex}
+
+	3.
+	Notice that $log(1)=\{i2\pi k:k\in\mathbb{Z}\}$ and use the law of multiplication.
+	
+\end{frame}
+
+
+\section{Branches of the logarithm and branch cuts}
+
+% ==============================
+
+% ==============================
+
+
+% ==============================
+\begin{frame}{Brunches of the logarithm}
+
+
+
+\begin{definition}[1.7.9 on p.17, Gratwick]
+	A \emph{brunch} of the logarithm is defined as a function $Log_{\phi}:\mathbb{C}-\{0\}\to\mathbb{C}$,
+	\begin{align*}
+		Log_{\phi}(z):=\ln |z|+iArg_{\phi}(z)
+	\end{align*}
+	where $Arg_{\phi}(z)\in arg(z)\cap (\phi,\phi+2\pi]$ is a properly defined real number.
+\end{definition}\pause
 
 \begin{example}
-Some content
+	\emph{The principal brunch} of the logarithm is the function $Log:\mathbb{C}-\{0\}\to\mathbb{C}$ defined as 
+		\begin{align*}
+			Log(z):=Log_{-\pi}(z)=\ln |z|+iArg(z)
+		\end{align*}
 \end{example}
 
 \end{frame}
-% ==============================
-
-
-\subsection{Subsection name}
 
 % ==============================
-\begin{frame}{Third heading}
 
-\begin{enumerate}
-\item Item 1
-\item Item 2
-\item Item 3
-\end{enumerate}
+\begin{frame}{Brunch cuts and the cut plane}
 
+\begin{definition}[1.7.7 on p.17, Gratwick]
+	A \emph{brunch cut} $L$ is a subset removed from the complex plane $\mathbb{C}$ so that a holomorphic branch of a multivalued function may be defined on $D=\mathbb{C}-L$, the cut plane.
+\end{definition}\pause
+
+
+\begin{remark}
+	\emph{Half-lines} are an important class of branch cuts, so we introduce the following notation: For $z_0\in\mathbb{C}$ and $\phi\in\mathbb{R}$, define
+	\begin{align*}
+		L_{z_0,\phi}=\{z\in\mathbb{C}:z=z_0+re^{i\phi},r\geq 0\}
+	\end{align*}
+	and define its cut plane $D_{z_0,\phi}:=\mathbb{C}-L_{z_0,\phi}$. In particular, $D_\phi:=D_{0,\phi}$.
+\end{remark}
 \end{frame}
 % ==============================
 
 
-% ==============================
-\begin{frame}
+\section{Holomorphicity gained and continuity lost}
+\begin{frame}{Holomorphicity gained}
 
-\begin{figure}
-    \adjincludegraphics[center, width=10cm]{knot.pdf} % This uses the adjustbox package to centre the image - the code is slightly neater than the alternatives
-    \caption{A Celtic knot}
-    \label{fig:knot}
-\end{figure}
-
+	\begin{theorem}[1.7.10 on p.18, Gratwick]
+	A brunch of the logarithm $Log_{\phi}$ is holomorphic on the cut plane $D_\phi$, and $Log_{\phi}'(z)=1/z$ in $D_\phi$.
+	\end{theorem}\pause
+	
+	\begin{proof}
+	A sketch:
+		\begin{enumerate}
+			\item 1.Verify that $Log_{\phi}(z)=\ln(|z|)+iArg_{\phi}(z)$ has continuously differentiable real and imaginary parts on $D_\phi$.\pause
+			\item 2.Check that the Cauchy-Riemann equations are satisfied on $D_\phi$. These two steps combined show that $Log_\phi$ is holomorphic on $D_\phi$.\pause
+			\item 3.Differentiate $z=exp(Log_\phi(z))$ using the chain rule to compute the derivative of $Log_{\phi}$ on $D_\phi$.
+		\end{enumerate}
+	\end{proof}
+	
+	
+	
+	
 \end{frame}
-% ==============================
+
+\begin{frame}{Continuity lost}
+	Since $Arg_\phi(z)$ takes a jump when $z$ crosses $L_{0,\phi}$,  it isn't continuous there, and hence isn't $Log_\phi(z)=\ln(|z|)+iArg_\phi(z)$.\pause
+	
+	\begin{example}
+	 Notice that \begin{align*}
+	 	Arg_0(1)=2\pi
+	 \end{align*} while 
+	 \begin{align*}
+	 	Arg_0(e^{i\varepsilon})=\varepsilon
+	 \end{align*}
+	 Thus $2\pi=Arg_0(1)=Arg_0(\lim_{\varepsilon\to 0}e^{i\varepsilon})\neq\lim_{\varepsilon\to0}Arg_0(e^{i\varepsilon})=0$
+\end{example}
+\end{frame}
 
 
+
+\begin{frame}{To conclude}
+	\begin{enumerate}
+		\item The complex logarithm is a multivalued function.\pause
+		\item The complex logarithm "inherits" some properties of the real one, but just formally!\pause
+		\item By cutting the complex plane, we may define branches of the logarithm, which are \emph{functions}.\pause
+		\item Branches lose continuity on the branch cuts, but gain holomorphicity elsewhere.\pause
+	\end{enumerate}
+\end{frame}
+
+
+
 % ==============================
-\begin{frame}
-\printbibliography % This command prints the cited references.
+\begin{frame}{References}
+\begin{thebibliography}
+	\bibitem{1}.Gratwick, R. (2022). Honours Complex Variables Lecture Notes 2021–2022. Accessed February 13th, 2022.
+\end{thebibliography}
 \end{frame}
 % ==============================
 

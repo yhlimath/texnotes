@@ -1,0 +1,104 @@
+%\documentclass[handout]{beamer}
+\documentclass{beamer}
+%
+% See the beamer documentation at:
+% http://mirrors.ctan.org/macros/latex/contrib/beamer/doc/beameruserguide.pdf
+% for details of all the package options if you are interested.
+%
+%
+% This project is just a starting point for you to make your own
+% set of slides. Change it as you wish. Keeping it handy will probably be 
+% useful for the future too.
+%
+\mode<presentation> 
+{
+  \usetheme{Madrid}      % or try Boadilla, Darmstadt, Madrid, Warsaw, ...
+  \usecolortheme{default} % or try albatross, beaver, crane, ...
+  \usefonttheme{default}  % or try serif, structurebold, ...
+  \setbeamertemplate{navigation symbols}{} % This turns off the navigation bar. Some people like this.
+  \setbeamertemplate{caption}[numbered]
+}
+
+\usepackage[utf8]{inputenc}
+\usepackage[UKenglish]{babel}
+\usepackage{csquotes}
+\usepackage{adjustbox}
+
+% ========= Bibliography =========
+% These lines load the `biblatex' package
+% and read in the list of references from
+% References.bib - take a look.
+%
+% To generate References.bib, I recommend https://www.mybib.com/
+% rather than trying to write the .bib file yourself.
+%
+% style=verbose because we want full citations where they are 
+% made in the presentation so that the audience doesn't
+% have to wait until the end to know what the references are.
+%
+\usepackage[style=verbose]{biblatex}
+\begin{filecontents}{\jobname.bib}
+@misc{A01,
+  author = {Author, A.},
+  year = {2001},
+  title = {Alpha},
+}
+\end{filecontents}
+
+\addbibresource{\jobname.bib}
+
+
+
+\newtheorem{remark}{Remark}
+% ================================
+
+\title[Complex Logarithm]{A Review of Complex Logarithm}
+\author{Li Yueheng, s2306706}
+\institute{The University of Edinburgh}
+\date{\today}
+
+\begin{document}
+
+% ==============================
+\begin{frame}
+  \titlepage
+\end{frame}
+% ==============================
+
+
+% ==============================
+\begin{frame}
+\frametitle{Outline}
+\tableofcontents
+\end{frame}
+% ==============================
+
+
+\section{Definition and basic properties}
+
+% ==============================
+
+\begin{frame}
+	
+Some text \autocite[Proposition~3.iii]{A01}.
+
+Some more text \autocite[Proposition~3.iii on \pno~99]{A01}.
+
+Some more text \autocite[99]{A01}.
+
+\end{frame}
+
+
+
+
+
+% ==============================
+
+
+% ==============================
+\begin{frame}{References}
+\printbibliography % This command prints the cited references.
+\end{frame}
+% ==============================
+
+\end{document}

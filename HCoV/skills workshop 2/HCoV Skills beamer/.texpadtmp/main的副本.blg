@@ -1,0 +1,17 @@
+[0] Config.pm:304> INFO - This is Biber 2.14
+[0] Config.pm:307> INFO - Logfile is '/Users/heng/Library/Mobile Documents/com~apple~CloudDocs/tex/HCoV/skills workshop 2/HCoV Skills beamer/.texpadtmp/mainçå¯æ¬.blg'
+[71] biber-darwin:322> INFO - === Sun Feb 13, 2022, 15:37:10
+[193] Biber.pm:415> INFO - Reading '/Users/heng/Library/Mobile Documents/com~apple~CloudDocs/tex/HCoV/skills workshop 2/HCoV Skills beamer/.texpadtmp/main的副本.bcf'
+[257] Biber.pm:943> INFO - Found 1 citekeys in bib section 0
+[268] Biber.pm:4256> INFO - Processing section 0
+[268] Utils.pm:75> INFO - Globbing data source 'main的副本.bib'
+[268] Utils.pm:91> INFO - Globbed data source 'main的副本.bib' to mainçå¯æ¬.bib
+[278] Biber.pm:4455> INFO - Looking for bibtex format file 'mainçå¯æ¬.bib' for section 0
+[378] bibtex.pm:1653> INFO - LaTeX decoding ...
+[380] bibtex.pm:1471> INFO - Found BibTeX data source './main的副本.bib'
+[407] UCollate.pm:68> INFO - Overriding locale 'en-UK' defaults 'variable = shifted' with 'variable = non-ignorable'
+[407] UCollate.pm:68> INFO - Overriding locale 'en-UK' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[407] Biber.pm:4084> INFO - Sorting list 'nty/global//global/global' of type 'entry' with template 'nty' and locale 'en-UK'
+[407] Biber.pm:4090> INFO - No sort tailoring available for locale 'en-UK'
+[408] bbl.pm:652> INFO - Writing '/Users/heng/Library/Mobile Documents/com~apple~CloudDocs/tex/HCoV/skills workshop 2/HCoV Skills beamer/.texpadtmp/mainçå¯æ¬.bbl' with encoding 'UTF-8'
+[410] bbl.pm:755> INFO - Output to /Users/heng/Library/Mobile Documents/com~apple~CloudDocs/tex/HCoV/skills workshop 2/HCoV Skills beamer/.texpadtmp/mainçå¯æ¬.bbl
