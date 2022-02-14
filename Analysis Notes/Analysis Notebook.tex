@@ -52,6 +52,32 @@
 
 
 
+\section{Fourier Analysis}
+\begin{theorem}[Young's convolution inequality]
+	Let $1/p+1/q=1+1/r$ where $p,q,r$ are positive reals. then for $f\in L^p(\mathbb{T})$ and $g\in L^q(\mathbb{T})$, 
+	\begin{align*}
+		\lVert f*g\rVert_r\leq\lVert f \rVert_p\lVert g \rVert_q
+	\end{align*}
+	\begin{proof}
+	\begin{align*}
+		&\lVert f*g \rVert_r^r=\int_{\mathbb{T}}|\int_{\mathbb{T}}f(y)g(x-y)dy |^rdx \\
+		\leq&\int_{\mathbb{T}}\int_{\mathbb{T}}\left\{|f(y)|^{p/r}|g(x-y)|^{q/r}|f(y)|^{1-p/r}|g(x-y)|^{1-q/r}dy\right\}^rdx\\
+		\leq&\int_{\mathbb{T}}\left\{\lVert f(y)^{p/r}g(x-y)^{q/r} \rVert_r \cdot \lVert f(y)^{1-p/r} \rVert_{\frac{pr}{r-p}}\cdot \lVert g(x-y)^{1-q/r} \rVert_{\frac{qr}{r-q}}\right\}^rdx\quad\mbox{Holder's ineq} \\
+		=&\lVert f \rVert_p^{r-p}\cdot \lVert g \rVert_q^{r-q}\int_{\mathbb{T}}\int_{\mathbb{T}}|f(y)|^p|g(x-y)|^qdydx\\
+		=&\lVert f \rVert_p^r\cdot \lVert g \rVert_q^r
+	\end{align*}
+	\end{proof}
+	In this, the symmetry of the torus $\mathbb{T}$ is of fundamental importance by ensuring that 
+	$$\int_{\mathbb{T}}g(x-y)dy=\int_{\mathbb{T}}g(y)dy$$ and hence
+	$$\lVert g(x-y) \rVert_p=\lVert g(y) \rVert_p$$
+\end{theorem}
+
+
+
+
+
+
+
 
 
 
